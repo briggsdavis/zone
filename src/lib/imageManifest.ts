@@ -1,188 +1,194 @@
 /**
  * 1ZONE — Centralized image manifest.
  *
- * HOW TO REPLACE WITH REAL ASSETS:
  * Every <Image> on the site references a key in this file — no component
- * hardcodes a URL. To swap in the client's professional photography, change
- * only the `src` (and `alt`) here. Recommended: dark, luxurious, high-end
- * interiors; villa exteriors at dusk; material macros (marble, stone, dark
- * wood, bronze); and black-and-white craftsmanship/atelier shots for the
- * Craftsmanship page. Keep `alt` descriptive for accessibility.
+ * hardcodes a URL. The assets below are the client's own project photography,
+ * served locally from `public/`:
+ *   - /images/*      decorative interior/exterior photography
+ *   - /images/hero-gallery-art.jpg   home-page hero banner
+ *   - /brand/logo-white.png | logo-black.png   the 一境 · 1ZONE wordmark
+ *     (use white on dark surfaces, black on light — for legibility)
  *
- * Placeholders below are curated Unsplash photographs matching the aesthetic.
+ * To swap an asset, change only the `src` (and `alt`) here. Keep `alt`
+ * descriptive for accessibility.
  */
 
 type Img = { src: string; alt: string };
 
-// Unsplash delivery helper — consistent quality/width.
-const u = (id: string, w = 2000) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=${w}`;
+// Local public-asset path helper.
+const img = (name: string) => `/images/${name}`;
+
+// Brand wordmark — pick the variant that reads against the background.
+export const logo = {
+  white: { src: "/brand/logo-white.png", alt: "一境 · 1ZONE" },
+  black: { src: "/brand/logo-black.png", alt: "一境 · 1ZONE" },
+} as const;
 
 export const images = {
   home: {
     hero: {
-      src: u("1618221195710-dd6b41faaea6"),
-      alt: "A dark, cinematic modern living interior with dramatic light.",
+      src: img("hero-gallery-art.jpg"),
+      alt: "A dark gallery interior — a large abstract canvas glows against moss and warm timber.",
     },
     intro: {
-      src: u("1615874959474-d609969a20ed"),
-      alt: "A moody, high-end lounge with warm low lighting.",
+      src: img("lounge-sculpture.jpg"),
+      alt: "A moody lounge with a leather sofa, bronze sculpture, and layered materials.",
     },
     valuesArt: {
-      src: u("1567016432779-094069958ea5"),
-      alt: "Sculptural detail in a dark, art-filled space.",
+      src: img("atrium-art.jpg"),
+      alt: "An art-filled atrium with framed painting, candles, and ferns.",
     },
     valuesHuman: {
-      src: u("1616486338812-3dadae4b4ace"),
-      alt: "A warm, lived-in seating area in soft light.",
+      src: img("lounge-brutalist.jpg"),
+      alt: "People at ease in a warm, brutalist concrete lounge.",
     },
     valuesEfficiency: {
-      src: u("1618219740975-d40978bb7378"),
-      alt: "A precise, minimal architectural interior.",
+      src: img("meeting-tree.jpg"),
+      alt: "A precise, minimal meeting room with a sculptural tree and city view.",
     },
     valuesWarmth: {
-      src: u("1616137466211-f939a420be84"),
-      alt: "A warm-toned room with textured fabric and timber.",
+      src: img("arch-alabaster.jpg"),
+      alt: "A glowing alabaster archway in warm, soft light.",
     },
     servicesTeaser: {
-      src: u("1600210492493-0946911123ea"),
-      alt: "A dark luxury interior with layered materials.",
+      src: img("dining-travertine.jpg"),
+      alt: "A dark dining space with a travertine table and layered materials.",
     },
     process: {
-      src: u("1504917595217-d4dc5ebe6122"),
-      alt: "Black-and-white craftsmanship — hands at work.",
+      src: img("living-villa-glass.jpg"),
+      alt: "A dramatic concrete-and-glass living space opening to trees.",
     },
     contactCta: {
-      src: u("1600607687939-ce8a6c25118c"),
-      alt: "A calm, dramatic architectural space at dusk.",
+      src: img("dining-chandelier.jpg"),
+      alt: "A cinematic dark dining room beneath a linear chandelier.",
     },
   },
   about: {
     hero: {
-      src: u("1600585154340-be6161a56a0c"),
-      alt: "An elegant villa interior with sweeping light.",
+      src: img("living-villa-glass.jpg"),
+      alt: "An elegant villa interior with sweeping light and a glazed garden view.",
     },
     horizontal: [
       {
-        src: u("1567016432779-094069958ea5"),
-        alt: "Art — sculptural detail in a dark space.",
+        src: img("atrium-art.jpg"),
+        alt: "Art — a framed painting and candlelight in a serene atrium.",
       },
       {
-        src: u("1616486338812-3dadae4b4ace"),
-        alt: "Human-centered — a warm, lived-in interior.",
+        src: img("lounge-brutalist.jpg"),
+        alt: "Human-centered — people relaxing in a warm concrete lounge.",
       },
       {
-        src: u("1618219740975-d40978bb7378"),
-        alt: "Efficiency — a precise architectural interior.",
+        src: img("meeting-tree.jpg"),
+        alt: "Efficiency — a precise, minimal meeting room.",
       },
       {
-        src: u("1616137466211-f939a420be84"),
-        alt: "Warmth — a warm-toned, textured room.",
+        src: img("living-fireplace.jpg"),
+        alt: "Warmth — a living room with a suspended fireplace and timber.",
       },
     ] as Img[],
     ethos: {
-      src: u("1600566753190-17f0baa2a6c3"),
-      alt: "A serene, gallery-like residential space.",
+      src: img("arch-travertine.jpg"),
+      alt: "A serene, gallery-like stair hall with travertine and alabaster.",
     },
   },
   services: {
     turnkey: {
-      src: u("1600210492493-0946911123ea"),
-      alt: "A complete, furnished luxury living space.",
+      src: img("round-dining-dome.jpg"),
+      alt: "A complete, furnished round dining room beneath a terracotta dome.",
     },
     construction: {
-      src: u("1503387762-592deb58ef4e"),
-      alt: "Black-and-white construction detailing.",
+      src: img("wood-light-garden.jpg"),
+      alt: "Precise timber light fixtures and stonework framing a zen garden.",
     },
     design: {
-      src: u("1618221195710-dd6b41faaea6"),
-      alt: "A designed interior with cinematic light.",
+      src: img("dining-chandelier.jpg"),
+      alt: "A designed dining interior with cinematic light and a linear chandelier.",
     },
     furnishing: {
-      src: u("1586023492125-27b2c045efd7"),
-      alt: "High-end furniture and art in a styled room.",
+      src: img("lounge-sculpture.jpg"),
+      alt: "High-end furniture, sculpture, and art in a styled lounge.",
     },
     roofing: {
-      src: u("1600585154526-990dced4db0d"),
-      alt: "A villa roofline against an evening sky.",
+      src: img("villa-terrace.jpg"),
+      alt: "A villa roofline and covered terrace against an evening sky.",
     },
     facades: {
-      src: u("1600573472550-8090b5e0745e"),
-      alt: "A stone-clad façade in raking light.",
+      src: img("terrace-dining.jpg"),
+      alt: "A glazed, stone-clad façade and terrace in raking light.",
     },
   },
   craft: {
     hero: {
-      src: u("1504917595217-d4dc5ebe6122"),
-      alt: "Black-and-white craftsmanship — hands shaping material.",
+      src: img("wood-light-garden.jpg"),
+      alt: "Craftsmanship — precise timber detailing framing a stone garden.",
     },
     process: {
-      src: u("1531834685032-c34bf0d84c77"),
-      alt: "A disciplined, organized work site.",
+      src: img("dining-travertine.jpg"),
+      alt: "A disciplined, exactingly built dining space in dark timber and travertine.",
     },
     discipline: {
-      src: u("1521791136064-7986c2920216"),
-      alt: "Black-and-white portrait of focused craftsmen.",
+      src: img("lounge-brutalist.jpg"),
+      alt: "A composed, well-ordered brutalist lounge — discipline made visible.",
     },
     waterproofing: {
-      src: u("1581094794329-c8112a89af12"),
-      alt: "Detailed wet-room construction work.",
+      src: img("detail-ceramics.jpg"),
+      alt: "A close detail of finely finished surfaces and ceramics.",
     },
     material: {
-      src: u("1615873968403-89e068629265"),
-      alt: "A macro of marble and stone material.",
+      src: img("arch-travertine.jpg"),
+      alt: "A macro of travertine and alabaster — material as craft.",
     },
     closing: {
-      src: u("1600566752355-35792bedcfea"),
-      alt: "A finished, faithfully built luxury interior.",
+      src: img("living-fireplace.jpg"),
+      alt: "A finished, faithfully built warm living interior.",
     },
   },
   portfolio: {
     youJing: {
-      src: u("1600566753190-17f0baa2a6c3"),
-      alt: "You Jing Life Research Lab — the firm's own studio.",
+      src: img("showroom-lounge.jpg"),
+      alt: "You Jing Life Research Lab — the firm's own showroom studio.",
     },
     lydClub: {
-      src: u("1600210492493-0946911123ea"),
-      alt: "LYD Aesthetic Space Club — a private clubhouse.",
+      src: img("round-dining-dome.jpg"),
+      alt: "LYD Aesthetic Space Club — a private clubhouse dining room.",
     },
     cuihu: {
-      src: u("1615874959474-d609969a20ed"),
+      src: img("dining-travertine.jpg"),
       alt: "Cuihu large flat — craft-and-art integration.",
     },
     pingtan: {
-      src: u("1600585154340-be6161a56a0c"),
-      alt: "Pingtan resort villa.",
+      src: img("villa-terrace.jpg"),
+      alt: "Pingtan resort villa — covered terrace and roofline.",
     },
     townhouse: {
-      src: u("1600607687939-ce8a6c25118c"),
-      alt: "A townhouse villa in a private community.",
+      src: img("terrace-dining.jpg"),
+      alt: "A townhouse villa terrace in a private community.",
     },
     greenSpring: {
-      src: u("1616137466211-f939a420be84"),
-      alt: "Green Spring large flat.",
+      src: img("living-fireplace.jpg"),
+      alt: "Green Spring large flat — a warm living room.",
     },
     polyDuplex: {
-      src: u("1618219740975-d40978bb7378"),
-      alt: "A three-story duplex interior under construction.",
+      src: img("wood-light-garden.jpg"),
+      alt: "A three-story duplex interior with precise timber detailing.",
     },
     lakeheart: {
-      src: u("1616486338812-3dadae4b4ace"),
-      alt: "Lakeheart Island flat interior.",
+      src: img("showroom-chair.jpg"),
+      alt: "Lakeheart Island flat interior with a city view.",
     },
     mantanghong: {
-      src: u("1600585154526-990dced4db0d"),
-      alt: "Mantanghong townhouse villa.",
+      src: img("meeting-tree.jpg"),
+      alt: "Mantanghong townhouse villa interior.",
     },
     seaview: {
-      src: u("1600573472550-8090b5e0745e"),
-      alt: "A seaview garden villa.",
+      src: img("living-villa-glass.jpg"),
+      alt: "A seaview garden villa opening to trees and light.",
     },
   },
   contact: {
     hero: {
-      src: u("1600607687939-ce8a6c25118c"),
-      alt: "A calm architectural space at dusk.",
+      src: img("dining-chandelier.jpg"),
+      alt: "A calm, cinematic dining space at dusk.",
     },
   },
 } as const;

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Reveal from "@/src/components/motion/Reveal";
+import Logo from "@/src/components/brand/Logo";
 import { brand, nav, contact } from "@/src/lib/content";
 
 export default function Footer() {
@@ -9,9 +10,11 @@ export default function Footer() {
     <footer className="border-t border-line bg-black px-6 pb-10 pt-24 md:px-10">
       <div className="mx-auto max-w-[1600px]">
         <Reveal>
-          <p className="font-display text-[clamp(4rem,18vw,16rem)] leading-[0.85] tracking-[-0.02em] text-white">
-            {brand.name}
-          </p>
+          <Logo
+            variant="white"
+            className="w-full max-w-[1100px]"
+            sizes="(max-width: 768px) 100vw, 1100px"
+          />
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-4">
