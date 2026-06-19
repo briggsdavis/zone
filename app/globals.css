@@ -1,20 +1,181 @@
 @import "tailwindcss";
 
+/* ============================================================
+   1ZONE — Design tokens
+   Dark, editorial, gallery-grade. Warm off-white on near-black.
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --black: #0a0a0a; /* primary background — warm near-black */
+  --black-soft: #141414; /* raised surfaces, cards */
+  --white: #f5f3ef; /* warm off-white — primary text */
+  --white-dim: rgba(245, 243, 239, 0.65); /* secondary text */
+  --line: rgba(245, 243, 239, 0.16); /* hairlines / dividers */
+  --accent: #b79b7e; /* restrained warm bronze/taupe — use sparingly */
+
+  /* Motion tokens */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-micro: 0.4s;
+  --dur-standard: 0.8s;
+  --dur-dramatic: 1.2s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Expose tokens to Tailwind v4 utilities (text-white, bg-black, etc.) */
+@theme inline {
+  --color-black: var(--black);
+  --color-black-soft: var(--black-soft);
+  --color-white: var(--white);
+  --color-white-dim: var(--white-dim);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis owns scrolling */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Typographic defaults */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+/* Small uppercase eyebrow/label */
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--white-dim);
+}
+
+/* Fluid type helpers */
+.display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 9rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+.display-section {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--black);
+}
+
+/* Focus visibility (keep accessible — never remove) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Hide scrollbar visually but keep functionality */
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ---- Motion primitive base states (JS removes/animates these) ---- */
+[data-reveal] {
+  opacity: 0;
+}
+[data-reveal-line] {
+  display: block;
+  overflow: hidden;
+}
+
+/* RevealImage wipe-up cover panel */
+.reveal-image-cover {
+  position: absolute;
+  inset: 0;
+  background: var(--black);
+  z-index: 2;
+  transform: translateY(0);
+}
+
+/* TextSwap button clip */
+.textswap-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.1;
+}
+.textswap-stack {
+  display: block;
+  will-change: transform;
+}
+
+/* Timeline node activation glow */
+.timeline-node.is-active .dot-core {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(183, 155, 126, 0.18),
+    0 0 14px 2px rgba(183, 155, 126, 0.5);
+  transform: scale(1.2);
+}
+.timeline-node.is-active h3 {
+  color: var(--white);
+}
+
+/* Scroll cue — a thin accent line that pulses downward */
+.scroll-cue-line {
+  animation: scrollCue 1.8s var(--ease) infinite;
+}
+@keyframes scrollCue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* Reduced motion: everything resolves instantly to final state */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal-image-cover {
+    transform: translateY(-100%) !important;
+  }
+  .scroll-cue-line {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
 }

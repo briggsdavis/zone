@@ -25,7 +25,29 @@ const empty: Editing = {
   status: "draft",
 };
 
+// The CMS admin depends on a live Convex deployment. Until
+// NEXT_PUBLIC_CONVEX_URL is configured, the auth/data providers are not
+// mounted, so guard the page rather than calling Convex hooks without them.
+const convexConfigured = !!process.env.NEXT_PUBLIC_CONVEX_URL;
+
 export default function AdminPage() {
+  if (!convexConfigured) {
+    return (
+      <main className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-6 text-center">
+        <h1 className="mb-3 text-2xl font-bold tracking-tight">
+          CMS not connected
+        </h1>
+        <p className="text-sm text-gray-500">
+          Run <code>npx convex dev</code> and set{" "}
+          <code>NEXT_PUBLIC_CONVEX_URL</code> to enable the admin.
+        </p>
+      </main>
+    );
+  }
+  return <AdminDashboard />;
+}
+
+function AdminDashboard() {
   const { signOut } = useAuthActions();
   const me = useQuery(api.users.currentUser);
   const posts = useQuery(api.posts.listAll);
