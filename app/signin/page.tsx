@@ -4,7 +4,29 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthActions } from "@convex-dev/auth/react";
 
+// The CMS auth area depends on a live Convex deployment. Until
+// NEXT_PUBLIC_CONVEX_URL is configured, the auth provider is not mounted, so
+// guard the page rather than calling auth hooks without a provider.
+const convexConfigured = !!process.env.NEXT_PUBLIC_CONVEX_URL;
+
 export default function SignInPage() {
+  if (!convexConfigured) return <BackendNotice />;
+  return <SignInForm />;
+}
+
+function BackendNotice() {
+  return (
+    <main className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-6 text-center">
+      <h1 className="mb-3 text-2xl font-bold tracking-tight">CMS not connected</h1>
+      <p className="text-sm text-gray-500">
+        Run <code>npx convex dev</code> and set{" "}
+        <code>NEXT_PUBLIC_CONVEX_URL</code> to enable sign-in and the admin.
+      </p>
+    </main>
+  );
+}
+
+function SignInForm() {
   const { signIn } = useAuthActions();
   const router = useRouter();
   const [flow, setFlow] = useState<"signIn" | "signUp">("signIn");
