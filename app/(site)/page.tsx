@@ -16,26 +16,24 @@ export default function Home() {
     <>
       <IntroSequence />
 
-      {/* 1. HERO */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <Image
-          src={images.home.hero.src}
-          alt={images.home.hero.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+      {/* 1. HERO — the media + foreground are driven by IntroSequence on first
+          paint (id / data-hero-fg), then behave normally afterwards. */}
+      <section id="hero" className="relative h-screen w-full overflow-hidden">
+        <div id="hero-media" className="absolute inset-0">
+          <Image
+            src={images.home.hero.src}
+            alt={images.home.hero.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <RevealText
-            as="h1"
-            split
-            delay={0.2}
-            className="display-hero max-w-5xl text-white"
-          >
+          <h1 data-hero-fg className="display-hero max-w-5xl text-white">
             {brand.tagline}
-          </RevealText>
+          </h1>
         </div>
         <ScrollCue />
       </section>

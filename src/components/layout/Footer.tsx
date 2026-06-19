@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/src/components/motion/Reveal";
 import Logo from "@/src/components/brand/Logo";
 import { brand, nav, contact } from "@/src/lib/content";
+import { logo } from "@/src/lib/imageManifest";
 
 export default function Footer() {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useMenu } from "./MenuContext";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
@@ -32,21 +33,28 @@ export default function Navbar() {
           onClick={toggle}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+          className="group relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] transition-all duration-300 hover:gap-[9px]"
         >
+          {/* Helper hover hint: the two bars morph asymmetrically to signal the
+              control is interactive (suppressed once the menu is open / an X). */}
           <span
-            className={`block h-px w-7 bg-white transition-transform duration-300 ${
-              open ? "translate-y-[3.5px] rotate-45" : ""
+            className={`block h-px bg-white transition-all duration-300 ${
+              open
+                ? "w-7 translate-y-[3.5px] rotate-45"
+                : "w-7 origin-left group-hover:w-4"
             }`}
           />
           <span
-            className={`block h-px w-7 bg-white transition-transform duration-300 ${
-              open ? "-translate-y-[3.5px] -rotate-45" : ""
+            className={`block h-px bg-white transition-all duration-300 ${
+              open
+                ? "w-7 -translate-y-[3.5px] -rotate-45"
+                : "w-7 origin-right group-hover:w-5"
             }`}
           />
         </button>
 
-        {/* Center logo — Flip morph target for the intro */}
+        {/* Center logo — Flip morph target for the intro. The site is dark, so
+            the white lockup is used to stay legible against it. */}
         <Link
           href="/"
           id="nav-logo"

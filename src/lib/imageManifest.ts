@@ -206,3 +206,13 @@ export const projectImage: Record<string, Img> = {
   "mantanghong-townhouse-villa": images.portfolio.mantanghong,
   "seaview-garden-villa": images.portfolio.seaview,
 };
+
+// ── Brand logo lockups (一境 · 1ZONE) ────────────────────────────────────────
+// Two trimmed PNGs share the same lockup; pick the variant that stays legible
+// against the surface it sits on. The site is dark, so `white` is the default.
+export const logo = {
+  white: { src: "/logo-white.png", alt: "1ZONE — 一境" },
+  black: { src: "/logo-black.png", alt: "1ZONE — 一境" },
+  // Intrinsic aspect ratio of the trimmed lockup (width / height).
+  ratio: 1868 / 284,
+} as const;
