@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap, Flip, prefersReducedMotion } from "@/src/lib/gsap";
-import { brand } from "@/src/lib/content";
+import { logo } from "@/src/lib/imageManifest";
 
 const SEEN_KEY = "1zone_intro_seen";
 
@@ -112,9 +113,16 @@ export default function IntroSequence() {
     >
       <div
         ref={logoRef}
-        className="font-display text-[clamp(4rem,16vw,12rem)] tracking-[0.1em] text-white"
+        className="relative aspect-[1868/284] w-[min(72vw,720px)]"
       >
-        {brand.name}
+        <Image
+          src={logo.white.src}
+          alt={logo.white.alt}
+          fill
+          priority
+          sizes="(max-width: 768px) 72vw, 720px"
+          className="object-contain"
+        />
       </div>
     </div>
   );

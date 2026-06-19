@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useMenu } from "./MenuContext";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
-import { brand } from "@/src/lib/content";
+import { logo } from "@/src/lib/imageManifest";
 
 export default function Navbar() {
   const { open, toggle } = useMenu();
@@ -46,14 +47,22 @@ export default function Navbar() {
           />
         </button>
 
-        {/* Center logo — Flip morph target for the intro */}
+        {/* Center logo — Flip morph target for the intro. The site is dark, so
+            the white lockup is used to stay legible against it. */}
         <Link
           href="/"
           id="nav-logo"
-          className="font-display text-2xl tracking-[0.12em] text-white"
+          className="inline-flex items-center"
           aria-label="1ZONE home"
         >
-          {brand.name}
+          <Image
+            src={logo.white.src}
+            alt={logo.white.alt}
+            width={188}
+            height={29}
+            priority
+            className="h-5 w-auto md:h-6"
+          />
         </Link>
 
         {/* Contact (top-right) */}

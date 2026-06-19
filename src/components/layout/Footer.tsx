@@ -1,17 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/src/components/motion/Reveal";
 import { brand, nav, contact } from "@/src/lib/content";
+import { logo } from "@/src/lib/imageManifest";
 
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-black px-6 pb-10 pt-24 md:px-10">
       <div className="mx-auto max-w-[1600px]">
         <Reveal>
-          <p className="font-display text-[clamp(4rem,18vw,16rem)] leading-[0.85] tracking-[-0.02em] text-white">
-            {brand.name}
-          </p>
+          {/* Dark footer → white lockup keeps the mark legible. */}
+          <Image
+            src={logo.white.src}
+            alt={logo.white.alt}
+            width={1868}
+            height={284}
+            sizes="(max-width: 768px) 90vw, 1100px"
+            className="h-auto w-full max-w-[1100px]"
+          />
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-4">
