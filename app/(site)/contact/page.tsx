@@ -3,6 +3,7 @@ import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import ContactForm from "@/src/components/contact/ContactForm";
+import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { contact, brand } from "@/src/lib/content";
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
+    <>
     <section className="px-6 pb-[clamp(6rem,14vh,12rem)] pt-40 md:px-10">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-16 lg:grid-cols-12">
         {/* Left — intro + details */}
@@ -62,5 +64,9 @@ export default function ContactPage() {
         </div>
       </div>
     </section>
+
+      {/* EXPLORE MORE */}
+      <SiteExplore current="/contact" />
+    </>
   );
 }

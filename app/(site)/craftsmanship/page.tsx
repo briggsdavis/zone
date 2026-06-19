@@ -6,6 +6,7 @@ import RevealImage from "@/src/components/motion/RevealImage";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
 import Timeline from "@/src/components/about/Timeline";
 import Accordion from "@/src/components/ui/Accordion";
+import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { craft } from "@/src/lib/content";
 
@@ -166,6 +167,9 @@ export default function CraftsmanshipPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* EXPLORE MORE */}
+      <SiteExplore current="/craftsmanship" />
     </>
   );
 }

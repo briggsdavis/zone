@@ -9,6 +9,8 @@ type Props = {
   label: string;
   className?: string;
   underline?: boolean;
+  /** Wrap the label in a thin hairline box (used for section-link chips). */
+  boxed?: boolean;
 };
 
 /**
@@ -20,6 +22,7 @@ export default function TextSwapButton({
   label,
   className = "",
   underline = true,
+  boxed = false,
 }: Props) {
   const stackRef = useRef<HTMLSpanElement>(null);
   const lineRef = useRef<HTMLSpanElement>(null);
@@ -37,6 +40,12 @@ export default function TextSwapButton({
       gsap.to(lineRef.current, { scaleX: 0, duration: 0.5, ease: "power3.out" });
   };
 
+  // Boxed chips draw their own border and never carry the underline.
+  const showUnderline = underline && !boxed;
+  const boxClasses = boxed
+    ? "border border-line px-5 py-3 transition-colors hover:border-accent"
+    : "";
+
   return (
     <Link
       href={href}
@@ -44,7 +53,7 @@ export default function TextSwapButton({
       onMouseLeave={leave}
       onFocus={enter}
       onBlur={leave}
-      className={`group relative inline-flex flex-col ${className}`}
+      className={`group relative inline-flex flex-col ${boxClasses} ${className}`}
     >
       <span className="textswap-clip">
         <span ref={stackRef} className="textswap-stack">
@@ -54,7 +63,7 @@ export default function TextSwapButton({
           </span>
         </span>
       </span>
-      {underline && (
+      {showUnderline && (
         <span
           ref={lineRef}
           aria-hidden

@@ -6,8 +6,12 @@ import RevealImage from "@/src/components/motion/RevealImage";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
 import ScrollCue from "@/src/components/sections/ScrollCue";
 import ValueCard from "@/src/components/sections/ValueCard";
+import FeatureDuo from "@/src/components/sections/FeatureDuo";
+import TriptychVaried from "@/src/components/sections/TriptychVaried";
+import SplitFeature from "@/src/components/sections/SplitFeature";
+import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images, projectImage } from "@/src/lib/imageManifest";
-import { brand, positioning, values, services, projects, craft } from "@/src/lib/content";
+import { brand, positioning, values, projects, craft } from "@/src/lib/content";
 
 const teaserProjects = projects.slice(0, 4);
 
@@ -68,6 +72,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2b. EDITORIAL DUO — heavy imagery, asymmetric whitespace */}
+      <FeatureDuo
+        eyebrow="The atelier"
+        heading="Made-to-measure spaces — haute couture, applied to space."
+        lede={positioning[2]}
+        primary={images.home.editorialPrimary}
+        secondary={images.home.editorialSecondary}
+      />
+
       {/* 3. CORE VALUES */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
         <div className="mx-auto max-w-[1600px]">
@@ -97,35 +110,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SERVICES TEASER */}
-      <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="eyebrow mb-4">What we do</p>
-              <RevealText as="h2" split className="display-section max-w-2xl text-white">
-                One firm, the whole project.
-              </RevealText>
-            </div>
-            <TextSwapButton
-              href="/services"
-              label="View all services →"
-              className="text-sm uppercase tracking-[0.15em]"
-            />
-          </div>
-          <div className="grid grid-cols-1 gap-px bg-line md:grid-cols-3">
-            {services.slice(0, 3).map((s) => (
-              <div
-                key={s.key}
-                className="group bg-black p-8 transition-colors hover:bg-black-soft"
-              >
-                <h3 className="font-display text-2xl text-white">{s.title}</h3>
-                <p className="mt-3 text-white-dim">{s.short}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 4. SERVICES TEASER — varied triptych */}
+      <TriptychVaried
+        eyebrow="What we do"
+        heading="One firm, the whole project."
+        cta={{ href: "/services", label: "View all services →" }}
+        images={[
+          images.services.turnkey,
+          images.services.construction,
+          images.services.facades,
+        ]}
+      />
 
       {/* 5. PORTFOLIO TEASER */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
@@ -165,35 +160,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. PROCESS GLIMPSE → CRAFTSMANSHIP */}
-      <section className="relative h-[80vh] w-full overflow-hidden border-t border-line">
-        <RevealImage
-          src={images.home.process.src}
-          alt={images.home.process.alt}
-          className="absolute inset-0 h-full w-full"
-          parallax
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col justify-center px-6 md:px-10">
-          <p className="eyebrow mb-6">The rigor behind the realm</p>
-          <RevealText as="h2" split className="display-section max-w-3xl text-white">
-            12 management nodes. Uniformed crews. Four-party sign-off.
-          </RevealText>
-          <Reveal delay={0.1}>
-            <p className="mt-8 max-w-xl text-white-dim">{craft.hero.lede}</p>
-            <div className="mt-8">
-              <TextSwapButton
-                href="/craftsmanship"
-                label="How we build →"
-                className="text-sm uppercase tracking-[0.15em]"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* 6. PROCESS GLIMPSE → CRAFTSMANSHIP — split feature */}
+      <SplitFeature
+        eyebrow="The rigor behind the realm"
+        heading="12 management nodes. Uniformed crews. Four-party sign-off."
+        body={craft.hero.lede}
+        cta={{ href: "/craftsmanship", label: "How we build →" }}
+        image={images.home.process}
+        imageSide="left"
+      />
 
-      {/* 7. CONTACT CTA */}
+      {/* 7. EXPLORE MORE — site-wide cross-navigation */}
+      <SiteExplore current="/" />
+
+      {/* 8. CONTACT CTA */}
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden border-t border-line px-6 text-center">
         <Image
           src={images.home.contactCta.src}

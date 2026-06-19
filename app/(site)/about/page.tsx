@@ -6,6 +6,8 @@ import RevealImage from "@/src/components/motion/RevealImage";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
 import HorizontalScroll from "@/src/components/about/HorizontalScroll";
 import Timeline from "@/src/components/about/Timeline";
+import OffsetPair from "@/src/components/sections/OffsetPair";
+import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { about, essence, valuesStatement, craft } from "@/src/lib/content";
 
@@ -53,6 +55,14 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ONE REALM — offset imagery pair */}
+      <OffsetPair
+        eyebrow="一境 · One realm"
+        heading="A single, unified, complete environment — delivered by one atelier."
+        small={images.about.ethos}
+        large={images.about.hero}
+      />
 
       {/* MISSION / VISION / ETHOS */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
@@ -123,6 +133,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* EXPLORE MORE */}
+      <SiteExplore current="/about" />
     </>
   );
 }

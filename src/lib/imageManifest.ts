@@ -62,6 +62,14 @@ export const images = {
       src: img("dining-chandelier.jpg"),
       alt: "A cinematic dark dining room beneath a linear chandelier.",
     },
+    editorialPrimary: {
+      src: img("living-wide.jpg"),
+      alt: "A wide, light-filled living space framed by timber and stone.",
+    },
+    editorialSecondary: {
+      src: img("onyx-staircase.jpg"),
+      alt: "A sculptural onyx staircase glowing in a quiet stair hall.",
+    },
   },
   about: {
     hero: {

@@ -4,6 +4,8 @@ import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
 import Accordion from "@/src/components/ui/Accordion";
+import FeatureDuo from "@/src/components/sections/FeatureDuo";
+import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { services } from "@/src/lib/content";
 
@@ -55,6 +57,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* FURNISHING & ART — editorial duo */}
+      <FeatureDuo
+        eyebrow="Furnishing & art"
+        heading="Furnished, styled, and finished — down to the last object."
+        lede="From bespoke furniture to procured art, the whole environment arrives composed — nothing left to chance, nothing left to fill in later."
+        primary={images.services.furnishing}
+        secondary={images.services.design}
+      />
+
       {/* CRAFT CROSS-LINK */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
         <div className="mx-auto flex max-w-[1600px] flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -68,6 +79,9 @@ export default function ServicesPage() {
           />
         </div>
       </section>
+
+      {/* EXPLORE MORE */}
+      <SiteExplore current="/services" />
     </>
   );
 }
