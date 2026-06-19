@@ -4,6 +4,7 @@ import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import RevealImage from "@/src/components/motion/RevealImage";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import ImageDuo from "@/src/components/editorial/ImageDuo";
 import Timeline from "@/src/components/about/Timeline";
 import Accordion from "@/src/components/ui/Accordion";
 import { images } from "@/src/lib/imageManifest";
@@ -61,6 +62,15 @@ export default function CraftsmanshipPage() {
           <Timeline nodes={[...craft.process.nodes]} />
         </div>
       </section>
+
+      {/* EDITORIAL IMAGE PAIR — site discipline + material detail */}
+      <ImageDuo
+        className="border-t border-line"
+        lead="Detailing most clients never see — done as if they will."
+        primary={images.craft.process}
+        secondary={images.craft.material}
+        secondarySide="left"
+      />
 
       {/* DISCIPLINE — TRUST MARKERS over full-bleed image */}
       <section className="relative overflow-hidden border-t border-line">
