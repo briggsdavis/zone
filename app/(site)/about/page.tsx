@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
-import RevealImage from "@/src/components/motion/RevealImage";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import ImageDuo from "@/src/components/editorial/ImageDuo";
+import SplitFeature from "@/src/components/editorial/SplitFeature";
 import HorizontalScroll from "@/src/components/about/HorizontalScroll";
 import Timeline from "@/src/components/about/Timeline";
 import OffsetPair from "@/src/components/sections/OffsetPair";
@@ -56,12 +56,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ONE REALM, offset imagery pair */}
-      <OffsetPair
-        eyebrow="一境 · One realm"
-        heading="A single, unified, complete environment, delivered by one atelier."
-        small={images.about.ethos}
-        large={images.about.hero}
+      {/* EDITORIAL IMAGE PAIR */}
+      <ImageDuo
+        className="border-t border-line"
+        lead="Building treated as craft; the finished home treated as a work of art."
+        primary={images.about.ethos}
+        secondary={images.home.intro}
+        secondarySide="right"
       />
 
       {/* MISSION / VISION / ETHOS */}
@@ -105,37 +106,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ORIGIN (placeholder) + CTA */}
-      <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
-        <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 md:grid-cols-12">
-          <div className="md:col-span-6">
-            <p className="eyebrow mb-6">Origin</p>
-            <RevealText as="p" className="font-display text-2xl leading-snug text-white-dim">
-              {about.origin}
-            </RevealText>
-            <Reveal delay={0.1}>
-              <div className="mt-10">
-                <TextSwapButton
-                  href="/contact"
-                  label="Begin a project →"
-                  className="text-sm uppercase tracking-[0.15em]"
-                />
-              </div>
-            </Reveal>
-          </div>
-          <div className="md:col-span-6">
-            <RevealImage
-              src={images.about.ethos.src}
-              alt={images.about.ethos.alt}
-              className="aspect-[4/3] w-full"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* EXPLORE MORE */}
-      <SiteExplore current="/about" />
+      {/* ORIGIN (placeholder) + CTA — full-bleed split */}
+      <SplitFeature
+        className="border-t border-line"
+        image={images.home.contactCta}
+        side="right"
+        eyebrow="Origin"
+        heading="Ten projects a year. Built exactly as designed."
+        body={about.origin}
+        link={{ href: "/contact", label: "Begin a project" }}
+      />
     </>
   );
 }

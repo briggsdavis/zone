@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
+import RevealImage from "@/src/components/motion/RevealImage";
 import ContactForm from "@/src/components/contact/ContactForm";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
@@ -46,22 +46,23 @@ export default function ContactPage() {
             </dl>
             <p className="mt-8 text-xs text-white-dim">{contact.note}</p>
           </Reveal>
-
-          <div className="relative mt-12 hidden aspect-[4/3] w-full overflow-hidden lg:block">
-            <Image
-              src={images.contact.hero.src}
-              alt={images.contact.hero.alt}
-              fill
-              sizes="40vw"
-              className="object-cover"
-            />
-          </div>
         </div>
 
         {/* Right, form */}
         <div className="lg:col-span-7 lg:pl-10">
           <ContactForm />
         </div>
+      </div>
+
+      {/* Closing full-width image band */}
+      <div className="mx-auto mt-[clamp(4rem,10vh,8rem)] max-w-[1600px]">
+        <RevealImage
+          src={images.contact.hero.src}
+          alt={images.contact.hero.alt}
+          parallax
+          className="aspect-[16/9] w-full"
+          sizes="100vw"
+        />
       </div>
     </section>
 

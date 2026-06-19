@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
-import Accordion from "@/src/components/ui/Accordion";
-import FeatureDuo from "@/src/components/sections/FeatureDuo";
-import SiteExplore from "@/src/components/sections/SiteExplore";
+import SplitFeature from "@/src/components/editorial/SplitFeature";
+import ImageRow from "@/src/components/editorial/ImageRow";
 import { images } from "@/src/lib/imageManifest";
 import { services } from "@/src/lib/content";
 
@@ -13,6 +11,16 @@ export const metadata: Metadata = {
   title: "Services, One firm, the whole project | 1ZONE",
   description:
     "1ZONE's services: whole-case design and build, interior architecture and construction, spatial design, furnishing and art procurement, villa roofing systems, and stone-clad façades.",
+};
+
+// Each service key → its editorial image.
+const serviceImage: Record<string, { src: string; alt: string }> = {
+  turnkey: images.services.turnkey,
+  construction: images.services.construction,
+  design: images.services.design,
+  furnishing: images.services.furnishing,
+  roofing: images.services.roofing,
+  facades: images.services.facades,
 };
 
 export default function ServicesPage() {
@@ -42,46 +50,31 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* SERVICES, accordion */}
-      <section className="px-6 py-[clamp(5rem,12vh,10rem)] md:px-10">
-        <div className="mx-auto max-w-[1400px]">
-          <Reveal>
-            <Accordion
-              items={services.map((s) => ({
-                title: s.title,
-                body: s.body,
-                points: s.points,
-              }))}
-            />
-          </Reveal>
-        </div>
-      </section>
+      {/* SERVICES — alternating full-bleed splits, one per offering */}
+      {services.map((s, i) => (
+        <SplitFeature
+          key={s.key}
+          className="border-t border-line"
+          image={serviceImage[s.key]}
+          side={i % 2 === 0 ? "left" : "right"}
+          eyebrow={`0${i + 1} — ${s.short}`}
+          heading={s.title}
+          body={s.body}
+          points={s.points}
+        />
+      ))}
 
-      {/* FURNISHING & ART, editorial duo */}
-      <FeatureDuo
-        eyebrow="Furnishing & art"
-        heading="Furnished, styled, and finished, down to the last object."
-        lede="From bespoke furniture to procured art, the whole environment arrives composed, nothing left to chance, nothing left to fill in later."
-        primary={images.services.furnishing}
-        secondary={images.services.design}
+      {/* CRAFT CROSS-LINK — closing row */}
+      <ImageRow
+        className="border-t border-line"
+        title="The rigor that makes it real."
+        action={{ href: "/craftsmanship", label: "See how we build" }}
+        ratio="aspect-[16/10]"
+        items={[
+          { ...images.craft.discipline, label: "Craftsmanship", href: "/craftsmanship" },
+          { ...images.craft.process, label: "Standards", href: "/craftsmanship" },
+        ]}
       />
-
-      {/* CRAFT CROSS-LINK */}
-      <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
-        <div className="mx-auto flex max-w-[1600px] flex-col justify-between gap-8 md:flex-row md:items-end">
-          <RevealText as="h2" split className="display-section max-w-2xl text-white">
-            The rigor that makes it real.
-          </RevealText>
-          <TextSwapButton
-            href="/craftsmanship"
-            label="See how we build →"
-            className="text-sm uppercase tracking-[0.15em]"
-          />
-        </div>
-      </section>
-
-      {/* EXPLORE MORE */}
-      <SiteExplore current="/services" />
     </>
   );
 }
