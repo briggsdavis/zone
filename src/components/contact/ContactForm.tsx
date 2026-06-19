@@ -3,9 +3,9 @@
 import { useState, FormEvent } from "react";
 
 /**
- * DEMO ONLY, front-end form. On submit it runs light client-side validation
- * and shows an inline success state. It does NOT send anywhere; wire to Convex
- * or an email service when the backend is connected.
+ * Front-end only form. On submit it runs light client-side validation and
+ * shows an inline success state. It does NOT send anywhere; wire it to an
+ * email service or form endpoint if submissions need to be delivered.
  */
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
