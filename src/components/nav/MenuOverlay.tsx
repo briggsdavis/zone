@@ -1,16 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import { useMenu } from "./MenuContext";
 import { gsap, prefersReducedMotion } from "@/src/lib/gsap";
-import { nav, brand, contact } from "@/src/lib/content";
+import { nav } from "@/src/lib/content";
+import { images } from "@/src/lib/imageManifest";
+
+// A distinct preview image per page, surfaced on hover/focus of its link.
+const previews: Record<string, { src: string; alt: string }> = {
+  "/": images.home.hero,
+  "/about": images.about.hero,
+  "/services": images.services.turnkey,
+  "/craftsmanship": images.craft.hero,
+  "/portfolio": images.portfolio.youJing,
+  "/contact": images.contact.hero,
+};
 
 export default function MenuOverlay() {
   const { open, close } = useMenu();
   const panelRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLUListElement>(null);
+  const [active, setActive] = useState<string>(nav[0].href);
 
   // ESC to close + scroll lock + focus management.
   useEffect(() => {
@@ -26,6 +39,11 @@ export default function MenuOverlay() {
       lenis?.start();
     }
   }, [open, close]);
+
+  // Reset the preview to the first page each time the menu opens.
+  useEffect(() => {
+    if (open) setActive(nav[0].href);
+  }, [open]);
 
   // Animate panel + stagger links.
   useEffect(() => {
@@ -74,7 +92,7 @@ export default function MenuOverlay() {
       className="fixed inset-0 z-40 hidden bg-black"
       style={{ display: "none" }}
     >
-      <div className="mx-auto flex h-full max-w-[1600px] flex-col justify-between px-6 pb-12 pt-28 md:px-10">
+      <div className="mx-auto grid h-full max-w-[1600px] grid-cols-1 items-center gap-12 px-6 pb-12 pt-28 md:grid-cols-2 md:px-10">
         <nav>
           <ul ref={linksRef} className="space-y-1">
             {nav.map((item) => (
@@ -82,11 +100,13 @@ export default function MenuOverlay() {
                 <Link
                   href={item.href}
                   onClick={close}
+                  onMouseEnter={() => setActive(item.href)}
+                  onFocus={() => setActive(item.href)}
                   data-menu-link
-                  className="group flex items-baseline gap-4 py-1"
+                  className="group flex items-baseline gap-3 py-1"
                 >
                   <span className="eyebrow text-accent">{item.index}</span>
-                  <span className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-[1.05] text-white transition-colors duration-300 group-hover:text-accent">
+                  <span className="font-display text-[clamp(1.25rem,4vw,3rem)] leading-[1.1] text-white transition-colors duration-300 group-hover:text-accent">
                     {item.label}
                   </span>
                 </Link>
@@ -95,14 +115,25 @@ export default function MenuOverlay() {
           </ul>
         </nav>
 
-        <div className="flex flex-col gap-2 border-t border-line pt-6 text-sm text-white-dim md:flex-row md:items-end md:justify-between">
-          <p className="max-w-sm">
-            {brand.tagline} {brand.scarcity}
-          </p>
-          <p>
-            {/* PLACEHOLDER contact — client to provide */}
-            {contact.email}
-          </p>
+        {/* Hover preview — a different image per page, blurring between states. */}
+        <div className="relative hidden h-full max-h-[70vh] overflow-hidden md:block">
+          {nav.map((item) => {
+            const img = previews[item.href];
+            if (!img) return null;
+            const on = active === item.href;
+            return (
+              <Image
+                key={item.href}
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="45vw"
+                className={`object-cover transition-all duration-700 ease-out ${
+                  on ? "scale-100 opacity-100 blur-0" : "scale-105 opacity-0 blur-2xl"
+                }`}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
