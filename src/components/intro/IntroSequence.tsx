@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { gsap, Flip, prefersReducedMotion } from "@/src/lib/gsap";
 import { logo as brandLogo } from "@/src/lib/imageManifest";
 
