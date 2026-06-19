@@ -1,7 +1,7 @@
 /**
- * 1ZONE — Central content store.
+ * 1ZONE, Central content store.
  * All real copy is sourced from 1ZONE_Brand_Context_Document.md.
- * GAPS are marked with the PLACEHOLDER prefix — replace with client-supplied
+ * GAPS are marked with the PLACEHOLDER prefix, replace with client-supplied
  * facts before publishing. Never fabricate facts or international claims.
  */
 
@@ -18,20 +18,20 @@ export const brand = {
 };
 
 export const positioning = [
-  "A boutique turnkey atelier for high-net-worth clients — design, build, and furnishing under one roof.",
+  "A boutique turnkey atelier for high-net-worth clients, design, build, and furnishing under one roof.",
   "We accept only ten high-quality whole-case projects each year.",
   "Our specialty is exclusive, made-to-measure service: haute couture, applied to space.",
   "Fidelity of the built result to the design comes first. It is our number-one standard.",
 ];
 
 export const essence =
-  "1ZONE treats building as craft and the finished home, clubhouse, or penthouse as a work of art — obsessive about executing the design faithfully, deliberately low-volume, and warm rather than coldly modern.";
+  "1ZONE treats building as craft and the finished home, clubhouse, or penthouse as a work of art, obsessive about executing the design faithfully, deliberately low-volume, and warm rather than coldly modern.";
 
 export const values = [
   {
     en: "Art",
     cn: "艺术",
-    gloss: "Design as art — fine art, sculpture, and craft integrated into the space.",
+    gloss: "Design as art, fine art, sculpture, and craft integrated into the space.",
   },
   {
     en: "Human-Centered",
@@ -41,7 +41,7 @@ export const values = [
   {
     en: "Efficiency",
     cn: "效能",
-    gloss: "Functional performance and disciplined process — things that work.",
+    gloss: "Functional performance and disciplined process, things that work.",
   },
   {
     en: "Warmth",
@@ -51,14 +51,14 @@ export const values = [
 ] as const;
 
 export const valuesStatement =
-  "In this era of fusion — where design and art fuse, work and life fuse, and beauty and practicality fuse — old boundaries are breaking and the way people live evolves by the day. Guided by art, human-centered, efficiency, and warmth, we mine a new aesthetic value system for spatial design from nature and from art.";
+  "In this era of fusion, where design and art fuse, work and life fuse, and beauty and practicality fuse, old boundaries are breaking and the way people live evolves by the day. Guided by art, human-centered, efficiency, and warmth, we mine a new aesthetic value system for spatial design from nature and from art.";
 
 export const services = [
   {
     key: "turnkey",
     title: "Whole-Case Design & Build",
     short: "End-to-end, single-accountability delivery.",
-    body: "The headline offering: one firm carries the entire project — design, construction, furnishing, and handover — under a single line of accountability. You speak to one atelier, not a committee of designers, contractors, and suppliers.",
+    body: "The headline offering: one firm carries the entire project, design, construction, furnishing, and handover, under a single line of accountability. You speak to one atelier, not a committee of designers, contractors, and suppliers.",
     points: [
       "Concept, layout, and renderings the build is later measured against",
       "Construction, MEP, and finishes managed in-house",
@@ -70,7 +70,7 @@ export const services = [
     key: "construction",
     title: "Interior Architecture & Construction",
     short: "Structural alteration, MEP, waterproofing, finishes.",
-    body: "The discipline at the core of 1ZONE: structural and masonry alteration, mechanical/electrical/plumbing, waterproofing, ceilings, plastering, tiling, and finishing — governed by a 12-node construction-management framework and an exhaustive library of craft standards.",
+    body: "The discipline at the core of 1ZONE: structural and masonry alteration, mechanical/electrical/plumbing, waterproofing, ceilings, plastering, tiling, and finishing, governed by a 12-node construction-management framework and an exhaustive library of craft standards.",
     points: [
       "Rebar tie-ins and reinforced ground-beams at wet rooms",
       "MEP set out around final furniture positions before any channel is cut",
@@ -82,7 +82,7 @@ export const services = [
     key: "design",
     title: "Spatial & Interior Design",
     short: "Concept, layout, renderings, lead-designer direction.",
-    body: "Led by a principal designer, every scheme is developed as renderings that are posted on-site to guide the build — so the crew constructs to the design intent, not around it.",
+    body: "Led by a principal designer, every scheme is developed as renderings that are posted on-site to guide the build, so the crew constructs to the design intent, not around it.",
     points: [
       "Principal-designer-led concept and layout",
       "Photoreal renderings as the build's reference of truth",
@@ -93,7 +93,7 @@ export const services = [
     key: "furnishing",
     title: "Furnishing, Art & Procurement",
     short: "Sourcing and integrating high-end furniture and fine art.",
-    body: "We source and integrate premium furniture, lighting, and museum-grade craft — from B&B Italia furniture and Liuli Gongfang glass art to a six-month, double-sided peony embroidery commissioned from the Suzhou Embroidery Museum.",
+    body: "We source and integrate premium furniture, lighting, and museum-grade craft, from B&B Italia furniture and Liuli Gongfang glass art to a six-month, double-sided peony embroidery commissioned from the Suzhou Embroidery Museum.",
     points: [
       "Premium international furniture and lighting",
       "Bespoke fine-art and craft commissions",
@@ -104,7 +104,7 @@ export const services = [
     key: "roofing",
     title: "Villa Roofing Systems",
     short: "Traditional ceramic and modern metal tile, fully built up.",
-    body: "Two complete roofing systems with their full build-up and waterproofing — traditional high-temp ceramic tile for classical villas, and lightweight metal tile for modern, coastal, typhoon-exposed sites.",
+    body: "Two complete roofing systems with their full build-up and waterproofing, traditional high-temp ceramic tile for classical villas, and lightweight metal tile for modern, coastal, typhoon-exposed sites.",
     points: [
       "Ceramic tile: ~38 kg/m², 50–100 yr life, superb heat & sound insulation",
       "Metal tile: ~5–7 kg/m², 30–50 yr life, typhoon and impact resistant",
@@ -115,7 +115,7 @@ export const services = [
     key: "facades",
     title: "Stone-Clad Façade Systems",
     short: "Dry-hung stone on welded galvanized sub-frames.",
-    body: "Exterior stone cladding on a welded, hot-dip-galvanized steel sub-frame — engineered, de-slagged, primed, and sealed for a façade that endures.",
+    body: "Exterior stone cladding on a welded, hot-dip-galvanized steel sub-frame, engineered, de-slagged, primed, and sealed for a façade that endures.",
     points: [
       "M12 expansion bolts into galvanized base plates",
       "Galvanized channel-steel main frame, angle-iron secondary frame",
@@ -129,14 +129,14 @@ export const craft = {
   hero: {
     eyebrow: "How We Build",
     title: "Construction is the proof.",
-    lede: "Many firms design beautifully. 1ZONE's entire discipline exists to prove the finished space matches the design — down to the detailing you will never see. This is the rigor behind the realm.",
+    lede: "Many firms design beautifully. 1ZONE's entire discipline exists to prove the finished space matches the design, down to the detailing you will never see. This is the rigor behind the realm.",
   },
   // The 12-node construction-management framework, synthesized into a journey.
   process: {
     eyebrow: "The 12 Construction-Management Nodes",
     title: "A foolproof plan, before we break ground.",
     intro:
-      "Before breaking ground, we make a foolproof plan — with planning, protection, presentation, and monitoring. What follows is the management system every 1ZONE site runs on.",
+      "Before breaking ground, we make a foolproof plan, with planning, protection, presentation, and monitoring. What follows is the management system every 1ZONE site runs on.",
     nodes: [
       {
         n: "01",
@@ -146,7 +146,7 @@ export const craft = {
       {
         n: "02",
         title: "Design & renderings",
-        body: "The scheme is resolved as renderings — the reference the built result is later measured against.",
+        body: "The scheme is resolved as renderings, the reference the built result is later measured against.",
       },
       {
         n: "03",
@@ -161,7 +161,7 @@ export const craft = {
       {
         n: "05",
         title: "Branded, organized site",
-        body: "A clean, presented, professionally signed site — order, not chaos.",
+        body: "A clean, presented, professionally signed site, order, not chaos.",
       },
       {
         n: "06",
@@ -191,7 +191,7 @@ export const craft = {
       {
         n: "11",
         title: "Internal QC, then owner acceptance",
-        body: "Inspect internally first, then invite the owner — backed by a four-document QC loop.",
+        body: "Inspect internally first, then invite the owner, backed by a four-document QC loop.",
       },
       {
         n: "12",
@@ -204,7 +204,7 @@ export const craft = {
   discipline: {
     eyebrow: "A Disciplined Site",
     title: "Order is a form of respect.",
-    body: "From November 2025, crews working directly with 1ZONE follow a formal uniform and conduct policy — overseen by a dedicated general site supervisor. A disciplined site is not a chaotic one.",
+    body: "From November 2025, crews working directly with 1ZONE follow a formal uniform and conduct policy, overseen by a dedicated general site supervisor. A disciplined site is not a chaotic one.",
     markers: [
       {
         stat: "Uniformed",
@@ -216,7 +216,7 @@ export const craft = {
         stat: "3× / week",
         label: "Illustrated site logs",
         detail:
-          "Timestamped photo-and-text progress logs every Monday, Wednesday, and Friday — paired with craft standards.",
+          "Timestamped photo-and-text progress logs every Monday, Wednesday, and Friday, paired with craft standards.",
       },
       {
         stat: "360°",
@@ -232,7 +232,7 @@ export const craft = {
       },
     ],
   },
-  // The "right way vs wrong way" craft standards — the heart of the trust page.
+  // The "right way vs wrong way" craft standards, the heart of the trust page.
   standards: {
     eyebrow: "Craft Standards",
     title: "The right way, every time.",
@@ -242,7 +242,7 @@ export const craft = {
       {
         title: "Waterproofing",
         signature: true,
-        body: "A four-stage method — base reinforcement, two coats of waterproof coating, a flood (closed-water) test, then a protective layer.",
+        body: "A four-stage method, base reinforcement, two coats of waterproof coating, a flood (closed-water) test, then a protective layer.",
         proof: [
           "Weixing-brand waterproofing, a 9-step process",
           "Manufacturer-issued 10-year warranty certificate",
@@ -278,7 +278,7 @@ export const craft = {
       },
       {
         title: "Floor leveling & backfill",
-        body: "Screed-rib and fine manual leveling, with standardized lightweight-ceramsite backfill in grid partitions over steel mesh — never construction-waste fill, which settles and voids.",
+        body: "Screed-rib and fine manual leveling, with standardized lightweight-ceramsite backfill in grid partitions over steel mesh, never construction-waste fill, which settles and voids.",
         proof: [
           "LECA backfill with grid partitions and steel mesh",
           "Manual fine leveling to a true plane",
@@ -286,7 +286,7 @@ export const craft = {
       },
       {
         title: "Ceilings & GRG",
-        body: "Double-riveted keel junctions, double-layer staggered gypsum board, and custom one-piece molded GRG for curved forms — fewer seams, far less future cracking.",
+        body: "Double-riveted keel junctions, double-layer staggered gypsum board, and custom one-piece molded GRG for curved forms, fewer seams, far less future cracking.",
         proof: [
           "Main runners ~80 cm, hangers ~90–100 cm, nail spacing ≤20 cm",
           "Concealed GRG access panels",
@@ -303,7 +303,7 @@ export const craft = {
       },
       {
         title: "Tiling",
-        body: "Laid-out, aligned tiling with thin-set adhesive to minimize hollowing, correct falls to drains in wet areas, and clip systems for large slabs — finished floors protected after acceptance.",
+        body: "Laid-out, aligned tiling with thin-set adhesive to minimize hollowing, correct falls to drains in wet areas, and clip systems for large slabs, finished floors protected after acceptance.",
         proof: [
           "Thin-set adhesive against hollowing and delamination",
           "High-spec adhesive + clip systems for large-format slabs",
@@ -312,7 +312,7 @@ export const craft = {
     ],
   },
   closing: {
-    title: "Detailing most clients never see — done as if they will.",
+    title: "Detailing most clients never see, done as if they will.",
     body: "This is the single strongest reason to trust an atelier you have not yet met: not the renderings, but the rigor behind them.",
   },
 };
@@ -327,7 +327,7 @@ export const projects = [
     area: "700 m²",
     status: "Completed",
     blurb:
-      "1ZONE's own showroom and client-reception space — an experiential 'lab' where prospective clients live the firm's materials, craft, and lifestyle philosophy in person.",
+      "1ZONE's own showroom and client-reception space, an experiential 'lab' where prospective clients live the firm's materials, craft, and lifestyle philosophy in person.",
   },
   {
     slug: "lyd-aesthetic-space-club",
@@ -337,14 +337,14 @@ export const projects = [
     area: "1,200 m²",
     status: "Completed",
     blurb:
-      "The project where 1ZONE's four philosophies — art, human-centered, efficiency, warmth — were first articulated.",
+      "The project where 1ZONE's four philosophies, art, human-centered, efficiency, warmth, were first articulated.",
   },
   {
     slug: "shanghai-cuihu-large-flat",
     name: "Cuihu Large Flat",
     type: "Large Flat / Penthouse",
     location: "Shanghai",
-    area: "—",
+    area: "",
     status: "Completed",
     blurb:
       "A showcase of craft-and-art integration: B&B Italia furniture, a malachite feature wall, Liuli Gongfang glass art, and a six-month double-sided peony embroidery commissioned from the Suzhou Embroidery Museum.",
@@ -363,7 +363,7 @@ export const projects = [
     name: "Townhouse Villa",
     type: "Townhouse / Row Villa",
     location: "Jinjiang, Fujian",
-    area: "—",
+    area: "",
     status: "Completed",
     blurb: "A row villa within a private villa community.",
   },
@@ -372,7 +372,7 @@ export const projects = [
     name: "Green Spring Large Flat",
     type: "Large Flat / Penthouse",
     location: "Jinjiang, Fujian",
-    area: "—",
+    area: "",
     status: "Completed",
     blurb: "A large flat within a private residential community.",
   },
@@ -381,7 +381,7 @@ export const projects = [
     name: "Three-Story Duplex",
     type: "Duplex Interior",
     location: "Jinjiang, Fujian",
-    area: "—",
+    area: "",
     status: "In Progress",
     blurb: "A three-story duplex interior, under construction.",
   },
@@ -390,7 +390,7 @@ export const projects = [
     name: "Lakeheart Island Flat",
     type: "Flat Interior",
     location: "Jinjiang, Fujian",
-    area: "—",
+    area: "",
     status: "In Progress",
     blurb: "A lakeside flat interior, under construction.",
   },
@@ -399,7 +399,7 @@ export const projects = [
     name: "Mantanghong Townhouse Villa",
     type: "Townhouse Villa",
     location: "Jinjiang, Fujian",
-    area: "—",
+    area: "",
     status: "Upcoming",
     blurb: "A townhouse villa, entering site soon.",
   },
@@ -408,7 +408,7 @@ export const projects = [
     name: "Seaview Garden Villa",
     type: "Villa",
     location: "Coastal",
-    area: "—",
+    area: "",
     status: "Upcoming",
     blurb: "A seaview villa, entering site soon.",
   },
@@ -419,22 +419,22 @@ export type ProjectStatus = "Completed" | "In Progress" | "Upcoming";
 // ── About ────────────────────────────────────────────────────────────────────
 export const about = {
   philosophy:
-    "1ZONE — 一境, 'one realm.' A single, unified, complete environment, delivered by one atelier. The name is the promise: the whole project, under one accountability.",
+    "1ZONE, 一境, 'one realm.' A single, unified, complete environment, delivered by one atelier. The name is the promise: the whole project, under one accountability.",
   mission:
-    "To champion spatial aesthetics — and to deliver, faithfully, the space that was designed.",
+    "To champion spatial aesthetics, and to deliver, faithfully, the space that was designed.",
   vision:
     "A new aesthetic value system for living, mined from nature and from art.",
   origin:
-    "PLACEHOLDER — founder story and founding year to be provided by the client.",
+    "PLACEHOLDER, founder story and founding year to be provided by the client.",
   ethos:
     "Ten projects a year. Couture-level customization. An obsession with building the design exactly as drawn.",
 };
 
 // ── Contact (all placeholder per GAP list) ───────────────────────────────────
 export const contact = {
-  email: "hello@1zone.example", // PLACEHOLDER — client to provide
-  phone: "+00 000 000 0000", // PLACEHOLDER — client to provide
-  studio: "Jinjiang, Fujian — [confirm]", // PLACEHOLDER — client to provide
+  email: "hello@1zone.example", // PLACEHOLDER, client to provide
+  phone: "+00 000 000 0000", // PLACEHOLDER, client to provide
+  studio: "Jinjiang, Fujian, [confirm]", // PLACEHOLDER, client to provide
   note: "All contact details below are placeholders pending client confirmation.",
 };
 

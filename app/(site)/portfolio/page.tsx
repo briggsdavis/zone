@@ -6,9 +6,9 @@ import ImageRow from "@/src/components/editorial/ImageRow";
 import { images } from "@/src/lib/imageManifest";
 
 export const metadata: Metadata = {
-  title: "Portfolio — The realm, realized | 1ZONE",
+  title: "Portfolio, The realm, realized | 1ZONE",
   description:
-    "Selected villas, large flats, and private clubhouses by 1ZONE — completed, in progress, and upcoming.",
+    "Selected villas, large flats, and private clubhouses by 1ZONE, completed, in progress, and upcoming.",
 };
 
 export default function PortfolioPage() {

@@ -115,7 +115,7 @@ export default function MenuOverlay() {
           </ul>
         </nav>
 
-        {/* Hover preview — a different image per page, blurring between states. */}
+        {/* Hover preview, a different image per page, blurring between states. */}
         <div className="relative hidden h-full max-h-[70vh] overflow-hidden md:block">
           {nav.map((item) => {
             const img = previews[item.href];

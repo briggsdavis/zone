@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 /* ============================================================
-   1ZONE — Design tokens
+   1ZONE, Design tokens
    Dark, editorial, gallery-grade. Warm off-white on near-black.
    ============================================================ */
 :root {
-  --black: #0a0a0a; /* primary background — warm near-black */
+  --black: #0a0a0a; /* primary background, warm near-black */
   --black-soft: #141414; /* raised surfaces, cards */
-  --white: #f5f3ef; /* warm off-white — primary text */
+  --white: #f5f3ef; /* warm off-white, primary text */
   --white-dim: rgba(245, 243, 239, 0.65); /* secondary text */
   --line: rgba(245, 243, 239, 0.16); /* hairlines / dividers */
-  --accent: #b79b7e; /* restrained warm bronze/taupe — use sparingly */
+  --accent: #b79b7e; /* restrained warm bronze/taupe, use sparingly */
 
   /* Motion tokens */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -97,7 +97,7 @@ html.lenis body {
   color: var(--black);
 }
 
-/* Focus visibility (keep accessible — never remove) */
+/* Focus visibility (keep accessible, never remove) */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -126,16 +126,23 @@ body::-webkit-scrollbar {
   transform: translateY(0);
 }
 
-/* TextSwap button clip */
+/* TextSwap button clip, shows exactly one line; the duplicate below it is
+   revealed only when the stack slides up on hover. */
 .textswap-clip {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   line-height: 1.1;
+  height: 1.1em;
 }
 .textswap-stack {
   display: block;
   will-change: transform;
+}
+.textswap-stack > span {
+  display: block;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 /* Timeline node activation glow */
@@ -149,7 +156,7 @@ body::-webkit-scrollbar {
   color: var(--white);
 }
 
-/* Scroll cue — a thin accent line that pulses downward */
+/* Scroll cue, a thin accent line that pulses downward */
 .scroll-cue-line {
   animation: scrollCue 1.8s var(--ease) infinite;
 }

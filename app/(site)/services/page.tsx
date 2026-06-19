@@ -8,7 +8,7 @@ import { images } from "@/src/lib/imageManifest";
 import { services } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "Services — One firm, the whole project | 1ZONE",
+  title: "Services, One firm, the whole project | 1ZONE",
   description:
     "1ZONE's services: whole-case design and build, interior architecture and construction, spatial design, furnishing and art procurement, villa roofing systems, and stone-clad façades.",
 };
@@ -43,7 +43,7 @@ export default function ServicesPage() {
           </RevealText>
           <Reveal delay={0.3}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white-dim">
-              Design, build, and furnishing under one roof — a single line of
+              Design, build, and furnishing under one roof, a single line of
               accountability from first conversation to handover.
             </p>
           </Reveal>

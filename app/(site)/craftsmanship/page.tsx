@@ -7,11 +7,12 @@ import TextSwapButton from "@/src/components/motion/TextSwapButton";
 import ImageDuo from "@/src/components/editorial/ImageDuo";
 import Timeline from "@/src/components/about/Timeline";
 import Accordion from "@/src/components/ui/Accordion";
+import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { craft } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "Craftsmanship — How We Build | 1ZONE",
+  title: "Craftsmanship, How We Build | 1ZONE",
   description:
     "The construction rigor behind 1ZONE: a 12-node management framework, uniformed trained crews, branded 9-step waterproofing with a 10-year warranty, and a library of right-way-vs-wrong-way craft standards.",
 };
@@ -43,7 +44,7 @@ export default function CraftsmanshipPage() {
         </div>
       </section>
 
-      {/* PROCESS — 12 NODES, SCROLL-LIT TIMELINE */}
+      {/* PROCESS, 12 NODES, SCROLL-LIT TIMELINE */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-20 grid grid-cols-1 gap-10 md:grid-cols-12">
@@ -109,7 +110,7 @@ export default function CraftsmanshipPage() {
         </div>
       </section>
 
-      {/* STANDARDS — right-way-vs-wrong-way accordion */}
+      {/* STANDARDS, right-way-vs-wrong-way accordion */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-16 grid grid-cols-1 gap-10 md:grid-cols-12">
@@ -176,6 +177,9 @@ export default function CraftsmanshipPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* EXPLORE MORE */}
+      <SiteExplore current="/craftsmanship" />
     </>
   );
 }
