@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap, Flip, prefersReducedMotion } from "@/src/lib/gsap";
-import { brand } from "@/src/lib/content";
+import { logo as brandLogo } from "@/src/lib/imageManifest";
 
 const SEEN_KEY = "1zone_intro_seen";
 
@@ -65,7 +66,6 @@ export default function IntroSequence() {
         left: navBox.left,
         width: navBox.width,
         height: navBox.height,
-        fontSize: getComputedStyle(navLogo).fontSize,
         xPercent: 0,
         yPercent: 0,
         x: 0,
@@ -112,9 +112,18 @@ export default function IntroSequence() {
     >
       <div
         ref={logoRef}
-        className="font-display text-[clamp(4rem,16vw,12rem)] tracking-[0.1em] text-white"
+        className="relative h-[clamp(2.5rem,9vw,7rem)] overflow-hidden"
+        style={{ aspectRatio: "4.6 / 1" }}
       >
-        {brand.name}
+        <Image
+          src={brandLogo.white.src}
+          alt={brandLogo.white.alt}
+          fill
+          priority
+          sizes="(max-width: 768px) 80vw, 640px"
+          className="object-cover"
+          style={{ objectPosition: "center 47%" }}
+        />
       </div>
     </div>
   );

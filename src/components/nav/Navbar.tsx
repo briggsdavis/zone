@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useMenu } from "./MenuContext";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
-import { brand } from "@/src/lib/content";
+import Logo from "@/src/components/brand/Logo";
 
 export default function Navbar() {
   const { open, toggle } = useMenu();
@@ -50,10 +50,10 @@ export default function Navbar() {
         <Link
           href="/"
           id="nav-logo"
-          className="font-display text-2xl tracking-[0.12em] text-white"
+          className="inline-flex items-center"
           aria-label="1ZONE home"
         >
-          {brand.name}
+          <Logo variant="white" className="h-6 md:h-7" priority />
         </Link>
 
         {/* Contact (top-right) */}
