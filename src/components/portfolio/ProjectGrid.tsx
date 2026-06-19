@@ -48,7 +48,7 @@ export default function ProjectGrid() {
         ))}
       </div>
 
-      {/* Grid — mixed sizes */}
+      {/* Grid, mixed sizes */}
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-6">
         {visible.map((p, i) => {
           // Dynamic-ish sizing pattern.
@@ -84,7 +84,7 @@ export default function ProjectGrid() {
               </div>
               <p className="mt-1 text-sm text-white-dim">
                 {p.type} · {p.location}
-                {p.area !== "—" ? ` · ${p.area}` : ""}
+                {p.area ? ` · ${p.area}` : ""}
               </p>
             </button>
           );
@@ -128,7 +128,7 @@ export default function ProjectGrid() {
               </h2>
               <p className="mt-2 text-white-dim">
                 {active.type} · {active.location}
-                {active.area !== "—" ? ` · ${active.area}` : ""}
+                {active.area ? ` · ${active.area}` : ""}
               </p>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white-dim">
                 {active.blurb}

@@ -15,7 +15,7 @@ type Props = {
 
 /**
  * A tall full-bleed image filling one half, with a centred text block holding
- * the other half in generous whitespace — the "celebration of craftsmanship"
+ * the other half in generous whitespace, the "celebration of craftsmanship"
  * reference. The image side is configurable so consecutive uses can alternate.
  */
 export default function SplitFeature({

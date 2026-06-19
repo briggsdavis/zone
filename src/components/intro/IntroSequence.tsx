@@ -12,7 +12,7 @@ const SEEN_KEY = "1zone_intro_seen";
  * skippable, and skips instantly under reduced-motion):
  *
  *   1. The logo blurs into view, centered on a black screen.
- *   2. The logo morphs (Flip) from the center into its navbar resting slot —
+ *   2. The logo morphs (Flip) from the center into its navbar resting slot , 
  *      and, at the same time, the black screen fades to reveal the hero image,
  *      which blurs in at 70% and then morphs to fill the full viewport.
  *   3. The hero foreground (headline, scroll cue) blurs in, staggered.

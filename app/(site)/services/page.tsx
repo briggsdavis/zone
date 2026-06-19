@@ -10,7 +10,7 @@ import { images } from "@/src/lib/imageManifest";
 import { services } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "Services — One firm, the whole project | 1ZONE",
+  title: "Services, One firm, the whole project | 1ZONE",
   description:
     "1ZONE's services: whole-case design and build, interior architecture and construction, spatial design, furnishing and art procurement, villa roofing systems, and stone-clad façades.",
 };
@@ -35,14 +35,14 @@ export default function ServicesPage() {
           </RevealText>
           <Reveal delay={0.3}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white-dim">
-              Design, build, and furnishing under one roof — a single line of
+              Design, build, and furnishing under one roof, a single line of
               accountability from first conversation to handover.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* SERVICES — accordion */}
+      {/* SERVICES, accordion */}
       <section className="px-6 py-[clamp(5rem,12vh,10rem)] md:px-10">
         <div className="mx-auto max-w-[1400px]">
           <Reveal>
@@ -57,11 +57,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* FURNISHING & ART — editorial duo */}
+      {/* FURNISHING & ART, editorial duo */}
       <FeatureDuo
         eyebrow="Furnishing & art"
-        heading="Furnished, styled, and finished — down to the last object."
-        lede="From bespoke furniture to procured art, the whole environment arrives composed — nothing left to chance, nothing left to fill in later."
+        heading="Furnished, styled, and finished, down to the last object."
+        lede="From bespoke furniture to procured art, the whole environment arrives composed, nothing left to chance, nothing left to fill in later."
         primary={images.services.furnishing}
         secondary={images.services.design}
       />

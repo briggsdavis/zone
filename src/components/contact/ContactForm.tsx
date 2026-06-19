@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 
 /**
- * DEMO ONLY — front-end form. On submit it runs light client-side validation
+ * DEMO ONLY, front-end form. On submit it runs light client-side validation
  * and shows an inline success state. It does NOT send anywhere; wire to Convex
  * or an email service when the backend is connected.
  */
@@ -35,7 +35,7 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="flex min-h-[20rem] flex-col justify-center">
-        <p className="font-display text-3xl text-white">Thank you —</p>
+        <p className="font-display text-3xl text-white">Thank you.</p>
         <p className="mt-3 max-w-md text-lg text-white-dim">
           we&rsquo;ll be in touch. We accept only ten projects a year, and read
           every inquiry personally.

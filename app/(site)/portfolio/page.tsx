@@ -5,9 +5,9 @@ import ProjectGrid from "@/src/components/portfolio/ProjectGrid";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 
 export const metadata: Metadata = {
-  title: "Portfolio — The realm, realized | 1ZONE",
+  title: "Portfolio, The realm, realized | 1ZONE",
   description:
-    "Selected villas, large flats, and private clubhouses by 1ZONE — completed, in progress, and upcoming.",
+    "Selected villas, large flats, and private clubhouses by 1ZONE, completed, in progress, and upcoming.",
 };
 
 export default function PortfolioPage() {
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
             <Reveal delay={0.1}>
               <p className="mt-8 text-lg leading-relaxed text-white-dim">
                 Villas, large flats, and private clubhouses. Chinese developer
-                names are presented softly for clarity — the work, and its craft,
+                names are presented softly for clarity, the work, and its craft,
                 speaks for itself.
               </p>
             </Reveal>

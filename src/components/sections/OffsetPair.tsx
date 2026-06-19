@@ -16,7 +16,7 @@ type Props = {
 
 /**
  * A heading with an optional boxed link, then a small image set low on the left
- * beside a large wide image on the right — the "bustling city life" reference,
+ * beside a large wide image on the right, the "bustling city life" reference,
  * trading on scale contrast and whitespace.
  */
 export default function OffsetPair({ heading, eyebrow, cta, small, large }: Props) {

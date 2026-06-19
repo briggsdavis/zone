@@ -9,21 +9,29 @@ import Logo from "@/src/components/brand/Logo";
 
 export default function Navbar() {
   const { open, toggle } = useMenu();
-  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
+  // Hide the bar on downward scroll, reveal it the moment the user scrolls up.
+  // Always visible near the very top.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
-    onScroll();
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) < 6) return;
+      setHidden(y > lastY && y > 80);
+      lastY = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Keep the bar in view whenever the menu is open.
+  const isHidden = hidden && !open;
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-line bg-black/70 backdrop-blur-md"
-          : "border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-10">
@@ -54,7 +62,7 @@ export default function Navbar() {
           />
         </button>
 
-        {/* Center logo — Flip morph target for the intro. The site is dark, so
+        {/* Center logo, Flip morph target for the intro. The site is dark, so
             the white lockup is used to stay legible against it. */}
         <Link
           href="/"

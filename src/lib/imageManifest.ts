@@ -1,13 +1,13 @@
 /**
- * 1ZONE — Centralized image manifest.
+ * 1ZONE, Centralized image manifest.
  *
- * Every <Image> on the site references a key in this file — no component
+ * Every <Image> on the site references a key in this file, no component
  * hardcodes a URL. The assets below are the client's own project photography,
  * served locally from `public/`:
  *   - /images/*      decorative interior/exterior photography
  *   - /images/hero-gallery-art.jpg   home-page hero banner
  *   - /brand/logo-white.png | logo-black.png   the 一境 · 1ZONE wordmark
- *     (use white on dark surfaces, black on light — for legibility)
+ *     (use white on dark surfaces, black on light, for legibility)
  *
  * To swap an asset, change only the `src` (and `alt`) here. Keep `alt`
  * descriptive for accessibility.
@@ -18,7 +18,7 @@ type Img = { src: string; alt: string };
 // Local public-asset path helper.
 const img = (name: string) => `/images/${name}`;
 
-// Brand wordmark — pick the variant that reads against the background.
+// Brand wordmark, pick the variant that reads against the background.
 export const logo = {
   white: { src: "/brand/logo-white.png", alt: "一境 · 1ZONE" },
   black: { src: "/brand/logo-black.png", alt: "一境 · 1ZONE" },
@@ -28,7 +28,7 @@ export const images = {
   home: {
     hero: {
       src: img("hero-gallery-art.jpg"),
-      alt: "A dark gallery interior — a large abstract canvas glows against moss and warm timber.",
+      alt: "A dark gallery interior, a large abstract canvas glows against moss and warm timber.",
     },
     intro: {
       src: img("lounge-sculpture.jpg"),
@@ -79,19 +79,19 @@ export const images = {
     horizontal: [
       {
         src: img("atrium-art.jpg"),
-        alt: "Art — a framed painting and candlelight in a serene atrium.",
+        alt: "Art, a framed painting and candlelight in a serene atrium.",
       },
       {
         src: img("lounge-brutalist.jpg"),
-        alt: "Human-centered — people relaxing in a warm concrete lounge.",
+        alt: "Human-centered, people relaxing in a warm concrete lounge.",
       },
       {
         src: img("meeting-tree.jpg"),
-        alt: "Efficiency — a precise, minimal meeting room.",
+        alt: "Efficiency, a precise, minimal meeting room.",
       },
       {
         src: img("living-fireplace.jpg"),
-        alt: "Warmth — a living room with a suspended fireplace and timber.",
+        alt: "Warmth, a living room with a suspended fireplace and timber.",
       },
     ] as Img[],
     ethos: {
@@ -128,7 +128,7 @@ export const images = {
   craft: {
     hero: {
       src: img("wood-light-garden.jpg"),
-      alt: "Craftsmanship — precise timber detailing framing a stone garden.",
+      alt: "Craftsmanship, precise timber detailing framing a stone garden.",
     },
     process: {
       src: img("dining-travertine.jpg"),
@@ -136,7 +136,7 @@ export const images = {
     },
     discipline: {
       src: img("lounge-brutalist.jpg"),
-      alt: "A composed, well-ordered brutalist lounge — discipline made visible.",
+      alt: "A composed, well-ordered brutalist lounge, discipline made visible.",
     },
     waterproofing: {
       src: img("detail-ceramics.jpg"),
@@ -144,7 +144,7 @@ export const images = {
     },
     material: {
       src: img("arch-travertine.jpg"),
-      alt: "A macro of travertine and alabaster — material as craft.",
+      alt: "A macro of travertine and alabaster, material as craft.",
     },
     closing: {
       src: img("living-fireplace.jpg"),
@@ -154,19 +154,19 @@ export const images = {
   portfolio: {
     youJing: {
       src: img("showroom-lounge.jpg"),
-      alt: "You Jing Life Research Lab — the firm's own showroom studio.",
+      alt: "You Jing Life Research Lab, the firm's own showroom studio.",
     },
     lydClub: {
       src: img("round-dining-dome.jpg"),
-      alt: "LYD Aesthetic Space Club — a private clubhouse dining room.",
+      alt: "LYD Aesthetic Space Club, a private clubhouse dining room.",
     },
     cuihu: {
       src: img("dining-travertine.jpg"),
-      alt: "Cuihu large flat — craft-and-art integration.",
+      alt: "Cuihu large flat, craft-and-art integration.",
     },
     pingtan: {
       src: img("villa-terrace.jpg"),
-      alt: "Pingtan resort villa — covered terrace and roofline.",
+      alt: "Pingtan resort villa, covered terrace and roofline.",
     },
     townhouse: {
       src: img("terrace-dining.jpg"),
@@ -174,7 +174,7 @@ export const images = {
     },
     greenSpring: {
       src: img("living-fireplace.jpg"),
-      alt: "Green Spring large flat — a warm living room.",
+      alt: "Green Spring large flat, a warm living room.",
     },
     polyDuplex: {
       src: img("wood-light-garden.jpg"),

@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "1ZONE",
   description:
-    "1ZONE (一境) is a boutique turnkey design-and-build atelier for high-net-worth clients — villas, large flats, and private clubhouses. Ten projects a year.",
+    "1ZONE (一境) is a boutique turnkey design-and-build atelier for high-net-worth clients, villas, large flats, and private clubhouses. Ten projects a year.",
 };
 
 export default function RootLayout({

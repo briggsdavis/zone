@@ -14,7 +14,7 @@ type Props = {
 
 /**
  * A heading with an optional boxed link, then three images of varied size in a
- * row — portrait, a taller offset portrait, and a landscape — echoing the
+ * row, portrait, a taller offset portrait, and a landscape, echoing the
  * "Horizon-deep views" reference.
  */
 export default function TriptychVaried({ heading, eyebrow, cta, images }: Props) {

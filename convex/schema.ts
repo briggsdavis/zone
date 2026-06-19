@@ -16,7 +16,7 @@ export default defineSchema({
     title: v.string(),
     slug: v.string(),
     excerpt: v.optional(v.string()),
-    // Body is stored as rich text / markdown — swap for a block editor later.
+    // Body is stored as rich text / markdown, swap for a block editor later.
     body: v.string(),
     status: v.union(v.literal("draft"), v.literal("published")),
     authorId: v.id("users"),

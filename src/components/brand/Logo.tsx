@@ -8,7 +8,7 @@ type Props = {
    * "white" is the default.
    */
   variant?: "white" | "black";
-  /** Sizing utilities — control height (the aspect ratio fixes the width). */
+  /** Sizing utilities, control height (the aspect ratio fixes the width). */
   className?: string;
   priority?: boolean;
   sizes?: string;

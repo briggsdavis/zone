@@ -12,9 +12,9 @@ import { images } from "@/src/lib/imageManifest";
 import { about, essence, valuesStatement, craft } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "About — One realm, one atelier | 1ZONE",
+  title: "About, One realm, one atelier | 1ZONE",
   description:
-    "1ZONE (一境) — 'one realm.' A boutique turnkey design-and-build atelier. Mission, vision, the four principles, and the only-ten-projects-a-year ethos.",
+    "1ZONE (一境), 'one realm.' A boutique turnkey design-and-build atelier. Mission, vision, the four principles, and the only-ten-projects-a-year ethos.",
 };
 
 export default function AboutPage() {
@@ -56,10 +56,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ONE REALM — offset imagery pair */}
+      {/* ONE REALM, offset imagery pair */}
       <OffsetPair
         eyebrow="一境 · One realm"
-        heading="A single, unified, complete environment — delivered by one atelier."
+        heading="A single, unified, complete environment, delivered by one atelier."
         small={images.about.ethos}
         large={images.about.hero}
       />
@@ -82,7 +82,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* FOUR VALUES — pinned horizontal scroll */}
+      {/* FOUR VALUES, pinned horizontal scroll */}
       <HorizontalScroll />
 
       {/* VALUES STATEMENT */}
@@ -92,7 +92,7 @@ export default function AboutPage() {
         </RevealText>
       </section>
 
-      {/* TIMELINE — the customer journey / process, scroll-lit */}
+      {/* TIMELINE, the customer journey / process, scroll-lit */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-20">

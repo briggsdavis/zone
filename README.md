@@ -10,7 +10,7 @@ Convex-native CMS with a built-in admin UI.
 | -------------- | ------------------------------------------------- |
 | Framework      | Next.js 15 (App Router) + React 19                |
 | Backend / data | Convex                                            |
-| Auth           | Convex Auth (`@convex-dev/auth`) — email/password |
+| Auth           | Convex Auth (`@convex-dev/auth`), email/password |
 | CMS            | Convex-native (`posts`, `pages` tables + admin)   |
 | Styling        | Tailwind CSS v4                                    |
 
@@ -22,7 +22,7 @@ Convex-native CMS with a built-in admin UI.
    npm install
    ```
 
-2. **Set up Convex** — this creates a deployment, writes `NEXT_PUBLIC_CONVEX_URL`
+2. **Set up Convex**, this creates a deployment, writes `NEXT_PUBLIC_CONVEX_URL`
    to `.env.local`, and keeps your functions in sync:
 
    ```bash
@@ -32,7 +32,7 @@ Convex-native CMS with a built-in admin UI.
    On first run it will prompt you to log in / create a project. Leave this
    running in its own terminal.
 
-3. **Configure Convex Auth** — generate the keys the auth library needs:
+3. **Configure Convex Auth**, generate the keys the auth library needs:
 
    ```bash
    npx @convex-dev/auth
@@ -72,7 +72,7 @@ middleware.ts             Route protection for /admin
 - `middleware.ts` redirects unauthenticated visitors away from `/admin` and
   signed-in users away from `/signin`.
 - All write operations in `convex/posts.ts` call `requireUser`, so the backend
-  is the source of truth for access — not just the UI.
+  is the source of truth for access, not just the UI.
 - The home page reads published posts; the admin reads everything.
 
 ## Extending
@@ -80,6 +80,6 @@ middleware.ts             Route protection for /admin
 - **More content types:** add tables to `convex/schema.ts` and matching
   functions, then build admin UI.
 - **OAuth / magic links:** add providers in `convex/auth.ts`.
-- **Rich text:** the `body` field is plain text/markdown today — drop in a block
+- **Rich text:** the `body` field is plain text/markdown today, drop in a block
   editor (e.g. TipTap) and store its JSON when you're ready.
 - **Roles:** add a `role` field to users and check it inside `requireUser`.

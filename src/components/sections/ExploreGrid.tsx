@@ -16,7 +16,7 @@ type Props = {
 };
 
 /**
- * "Explore more" — a row of tall portrait images, each labeled with a section
+ * "Explore more", a row of tall portrait images, each labeled with a section
  * link beneath. Edge-to-edge with hairline gaps; a heading and optional boxed
  * CTA sit above. Used site-wide as a cross-navigation closer.
  */

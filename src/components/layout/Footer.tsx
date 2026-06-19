@@ -47,7 +47,7 @@ export default function Footer() {
 
           <div>
             <p className="eyebrow mb-4">Studio</p>
-            {/* PLACEHOLDER contact details — client to provide */}
+            {/* PLACEHOLDER contact details, client to provide */}
             <ul className="space-y-2 text-white-dim">
               <li>{contact.studio}</li>
               <li>{contact.email}</li>

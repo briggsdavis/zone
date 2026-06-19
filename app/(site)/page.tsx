@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <IntroSequence />
 
-      {/* 1. HERO — the media + foreground are driven by IntroSequence on first
+      {/* 1. HERO, the media + foreground are driven by IntroSequence on first
           paint (id / data-hero-fg), then behave normally afterwards. */}
       <section id="hero" className="relative h-screen w-full overflow-hidden">
         <div id="hero-media" className="absolute inset-0">
@@ -57,7 +57,7 @@ export default function Home() {
             <p className="mt-10 max-w-xl text-lg leading-relaxed text-white-dim">
               {positioning[0]} We hold to a single principle:{" "}
               <span className="text-white">{positioning[1].toLowerCase()}</span>{" "}
-              Fidelity of the built result to the design comes first — it is our
+              Fidelity of the built result to the design comes first, it is our
               number-one standard.
             </p>
             <p className="mt-6 text-sm uppercase tracking-[0.15em] text-accent">
@@ -75,10 +75,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2b. EDITORIAL DUO — heavy imagery, asymmetric whitespace */}
+      {/* 2b. EDITORIAL DUO, heavy imagery, asymmetric whitespace */}
       <FeatureDuo
         eyebrow="The atelier"
-        heading="Made-to-measure spaces — haute couture, applied to space."
+        heading="Made-to-measure spaces, haute couture, applied to space."
         lede={positioning[2]}
         primary={images.home.editorialPrimary}
         secondary={images.home.editorialSecondary}
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SERVICES TEASER — varied triptych */}
+      {/* 4. SERVICES TEASER, varied triptych */}
       <TriptychVaried
         eyebrow="What we do"
         heading="One firm, the whole project."
@@ -163,7 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. PROCESS GLIMPSE → CRAFTSMANSHIP — split feature */}
+      {/* 6. PROCESS GLIMPSE → CRAFTSMANSHIP, split feature */}
       <SplitFeature
         eyebrow="The rigor behind the realm"
         heading="12 management nodes. Uniformed crews. Four-party sign-off."
@@ -173,7 +173,7 @@ export default function Home() {
         imageSide="left"
       />
 
-      {/* 7. EXPLORE MORE — site-wide cross-navigation */}
+      {/* 7. EXPLORE MORE, site-wide cross-navigation */}
       <SiteExplore current="/" />
 
       {/* 8. CONTACT CTA */}
