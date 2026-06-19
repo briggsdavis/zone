@@ -35,7 +35,10 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <h1 data-hero-fg className="display-hero max-w-5xl text-white">
+          <h1
+            data-hero-fg
+            className="max-w-xl font-display text-[clamp(1.25rem,2.6vw,2rem)] font-normal leading-snug text-white"
+          >
             {brand.tagline}
           </h1>
         </div>

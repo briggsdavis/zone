@@ -126,16 +126,23 @@ body::-webkit-scrollbar {
   transform: translateY(0);
 }
 
-/* TextSwap button clip */
+/* TextSwap button clip — shows exactly one line; the duplicate below it is
+   revealed only when the stack slides up on hover. */
 .textswap-clip {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   line-height: 1.1;
+  height: 1.1em;
 }
 .textswap-stack {
   display: block;
   will-change: transform;
+}
+.textswap-stack > span {
+  display: block;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 /* Timeline node activation glow */

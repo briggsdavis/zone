@@ -161,6 +161,9 @@ export default function IntroSequence() {
       className="fixed inset-0 z-[60] flex items-center justify-center"
       aria-hidden
     >
+      {/* The black screen the logo blurs in over; fades away to reveal the
+          hero during the morph. */}
+      <div ref={bgRef} className="absolute inset-0 bg-black" />
       <div
         ref={logoRef}
         className="relative h-[clamp(2.5rem,9vw,7rem)] overflow-hidden"

@@ -33,6 +33,7 @@ export default function Navbar() {
           onClick={toggle}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
+          data-hero-fg
           className="group relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] transition-all duration-300 hover:gap-[9px]"
         >
           {/* Helper hover hint: the two bars morph asymmetrically to signal the
@@ -65,7 +66,7 @@ export default function Navbar() {
         </Link>
 
         {/* Contact (top-right) */}
-        <div className="flex w-10 justify-end md:w-auto">
+        <div data-hero-fg className="flex w-10 justify-end md:w-auto">
           <TextSwapButton
             href="/contact"
             label="Contact"
