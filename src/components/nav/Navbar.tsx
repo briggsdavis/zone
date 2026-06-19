@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useMenu } from "./MenuContext";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
-import { logo } from "@/src/lib/imageManifest";
+import Logo from "@/src/components/brand/Logo";
 
 export default function Navbar() {
   const { open, toggle } = useMenu();
@@ -61,14 +61,7 @@ export default function Navbar() {
           className="inline-flex items-center"
           aria-label="1ZONE home"
         >
-          <Image
-            src={logo.white.src}
-            alt={logo.white.alt}
-            width={188}
-            height={29}
-            priority
-            className="h-5 w-auto md:h-6"
-          />
+          <Logo variant="white" className="h-6 md:h-7" priority />
         </Link>
 
         {/* Contact (top-right) */}

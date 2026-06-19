@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/src/components/motion/Reveal";
+import Logo from "@/src/components/brand/Logo";
 import { brand, nav, contact } from "@/src/lib/content";
 import { logo } from "@/src/lib/imageManifest";
 
@@ -11,14 +12,10 @@ export default function Footer() {
     <footer className="border-t border-line bg-black px-6 pb-10 pt-24 md:px-10">
       <div className="mx-auto max-w-[1600px]">
         <Reveal>
-          {/* Dark footer → white lockup keeps the mark legible. */}
-          <Image
-            src={logo.white.src}
-            alt={logo.white.alt}
-            width={1868}
-            height={284}
-            sizes="(max-width: 768px) 90vw, 1100px"
-            className="h-auto w-full max-w-[1100px]"
+          <Logo
+            variant="white"
+            className="w-full max-w-[1100px]"
+            sizes="(max-width: 768px) 100vw, 1100px"
           />
         </Reveal>
 

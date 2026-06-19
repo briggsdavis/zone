@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap, Flip, prefersReducedMotion } from "@/src/lib/gsap";
-import { logo } from "@/src/lib/imageManifest";
+import { logo as brandLogo } from "@/src/lib/imageManifest";
 
 const SEEN_KEY = "1zone_intro_seen";
 
@@ -161,15 +162,19 @@ export default function IntroSequence() {
       className="fixed inset-0 z-[60] flex items-center justify-center"
       aria-hidden
     >
-      <div ref={bgRef} className="absolute inset-0 bg-black" />
-      <div ref={logoRef} className="relative aspect-[1868/284] w-[min(72vw,720px)]">
+      <div
+        ref={logoRef}
+        className="relative h-[clamp(2.5rem,9vw,7rem)] overflow-hidden"
+        style={{ aspectRatio: "4.6 / 1" }}
+      >
         <Image
-          src={logo.white.src}
-          alt={logo.white.alt}
+          src={brandLogo.white.src}
+          alt={brandLogo.white.alt}
           fill
           priority
-          sizes="(max-width: 768px) 72vw, 720px"
-          className="object-contain"
+          sizes="(max-width: 768px) 80vw, 640px"
+          className="object-cover"
+          style={{ objectPosition: "center 47%" }}
         />
       </div>
     </div>
