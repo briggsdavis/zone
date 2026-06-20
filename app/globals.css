@@ -178,6 +178,33 @@ body::-webkit-scrollbar {
     0 0 16px 3px rgba(183, 155, 126, 0.5);
 }
 
+/* Route transition: blur the freshly-swapped page into focus. Sits below the
+   navbar (z-50) so the bar stays crisp while the content resolves. */
+.route-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  opacity: 0;
+}
+.route-curtain.is-active {
+  opacity: 1;
+  background: rgba(10, 10, 10, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.route-curtain.is-active.is-clearing {
+  opacity: 0;
+  background: rgba(10, 10, 10, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition:
+    opacity 0.7s var(--ease),
+    background 0.7s var(--ease),
+    backdrop-filter 0.7s var(--ease),
+    -webkit-backdrop-filter 0.7s var(--ease);
+}
+
 /* Scroll cue, a thin accent line that pulses downward */
 .scroll-cue-line {
   animation: scrollCue 1.8s var(--ease) infinite;

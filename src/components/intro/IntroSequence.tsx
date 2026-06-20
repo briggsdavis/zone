@@ -7,6 +7,14 @@ import { logo as brandLogo } from "@/src/lib/imageManifest";
 
 const SEEN_KEY = "1zone_intro_seen";
 
+// Module-scoped: flips true once the intro has played or been skipped during
+// this page load. It persists across client-side navigations (the module is not
+// re-evaluated) but resets on a full reload. This lets later mounts (e.g.
+// navigating About → Home) initialise `done = true` and skip the overlay
+// entirely, so there is no black-flash on every visit to the home page. It is
+// `false` on the server and the first client render, so hydration still matches.
+let introResolved = false;
+
 /**
  * Homepage intro choreography (plays once per session, replays on full reload,
  * skippable, and skips instantly under reduced-motion):
@@ -24,7 +32,7 @@ export default function IntroSequence() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(() => introResolved);
 
   useEffect(() => {
     const overlay = overlayRef.current;
@@ -43,6 +51,7 @@ export default function IntroSequence() {
     const finish = () => {
       document.body.style.overflow = "";
       navLogo && gsap.set(navLogo, { opacity: 1 });
+      introResolved = true;
       setDone(true);
     };
 
