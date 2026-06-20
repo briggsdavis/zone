@@ -30,7 +30,7 @@ export default function ContactForm() {
   };
 
   const field =
-    "w-full border-b border-line bg-transparent py-4 text-white placeholder:text-white-dim/60 focus:border-accent focus:outline-none transition-colors";
+    "w-full border-b border-line bg-transparent py-5 text-white placeholder:text-white-dim/60 focus:border-accent focus:outline-none transition-colors";
 
   if (submitted) {
     return (
@@ -45,8 +45,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-8">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <form onSubmit={onSubmit} noValidate className="space-y-12">
+      <div className="grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
         <label className="block">
           <span className="eyebrow">Name</span>
           <input name="name" type="text" autoComplete="name" className={field} required />
@@ -77,7 +77,7 @@ export default function ContactForm() {
         </label>
         <label className="block md:col-span-2">
           <span className="eyebrow">Message</span>
-          <textarea name="message" rows={4} className={`${field} resize-none`} />
+          <textarea name="message" rows={5} className={`${field} resize-none`} />
         </label>
       </div>
 
@@ -89,11 +89,14 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group inline-flex items-center gap-3 border border-line px-8 py-4 text-sm uppercase tracking-[0.15em] text-white transition-colors hover:border-accent hover:text-accent"
+        className="group relative inline-flex items-center justify-center gap-3 overflow-hidden border border-white/60 px-9 py-4 text-sm uppercase tracking-[0.15em] text-white transition-colors duration-500"
       >
-        Send inquiry
-        <span className="transition-transform duration-300 group-hover:translate-x-1">
-          →
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-white opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+        />
+        <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+          Send inquiry
         </span>
       </button>
     </form>

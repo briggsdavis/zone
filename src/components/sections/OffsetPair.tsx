@@ -1,6 +1,6 @@
 import RevealText from "@/src/components/motion/RevealText";
 import RevealImage from "@/src/components/motion/RevealImage";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import BorderButton from "@/src/components/ui/BorderButton";
 
 type Img = { src: string; alt: string };
 
@@ -30,12 +30,7 @@ export default function OffsetPair({ heading, eyebrow, cta, small, large }: Prop
           </RevealText>
           {cta && (
             <div className="mt-8">
-              <TextSwapButton
-                href={cta.href}
-                label={cta.label}
-                boxed
-                className="text-xs uppercase tracking-[0.18em] text-white-dim"
-              />
+              <BorderButton href={cta.href} label={cta.label} className="text-xs" />
             </div>
           )}
         </div>

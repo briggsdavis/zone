@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import Reveal from "@/src/components/motion/Reveal";
 import Logo from "@/src/components/brand/Logo";
 import { brand, nav, contact } from "@/src/lib/content";
-import { logo } from "@/src/lib/imageManifest";
 
 export default function Footer() {
   return (
@@ -14,8 +12,8 @@ export default function Footer() {
         <Reveal>
           <Logo
             variant="white"
-            className="w-full max-w-[1100px]"
-            sizes="(max-width: 768px) 100vw, 1100px"
+            className="w-full max-w-[330px]"
+            sizes="330px"
           />
         </Reveal>
 
@@ -47,7 +45,6 @@ export default function Footer() {
 
           <div>
             <p className="eyebrow mb-4">Studio</p>
-            {/* PLACEHOLDER contact details, client to provide */}
             <ul className="space-y-2 text-white-dim">
               <li>{contact.studio}</li>
               <li>{contact.email}</li>
@@ -60,7 +57,17 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {brand.atelier}. {brand.lockup}
           </p>
-          <p>Placeholder details pending client confirmation.</p>
+          <p>
+            Made by{" "}
+            <a
+              href="https://briggsdavis.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white transition-colors hover:text-accent"
+            >
+              BriggsDavis
+            </a>
+          </p>
         </div>
       </div>
     </footer>

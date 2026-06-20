@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, prefersReducedMotion, safeContext } from "@/src/lib/gsap";
 
 type Props = {
   children: React.ReactNode;
@@ -31,7 +31,7 @@ export default function Reveal({
       return;
     }
 
-    const ctx = gsap.context(() => {
+    return safeContext(() => {
       gsap.set(el, { opacity: 1 });
       const targets = staggerChildren ? el.children : el;
       gsap.fromTo(
@@ -48,8 +48,6 @@ export default function Reveal({
         },
       );
     }, el);
-
-    return () => ctx.revert();
   }, [delay, staggerChildren, y]);
 
   return (

@@ -3,7 +3,9 @@ import IntroSequence from "@/src/components/intro/IntroSequence";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import RevealImage from "@/src/components/motion/RevealImage";
+import ParallaxImage from "@/src/components/motion/ParallaxImage";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import BorderButton from "@/src/components/ui/BorderButton";
 import ScrollCue from "@/src/components/sections/ScrollCue";
 import ValueCard from "@/src/components/sections/ValueCard";
 import FeatureDuo from "@/src/components/sections/FeatureDuo";
@@ -24,13 +26,11 @@ export default function Home() {
           paint (id / data-hero-fg), then behave normally afterwards. */}
       <section id="hero" className="relative h-screen w-full overflow-hidden">
         <div id="hero-media" className="absolute inset-0">
-          <Image
+          <ParallaxImage
             src={images.home.hero.src}
             alt={images.home.hero.alt}
-            fill
             priority
             sizes="100vw"
-            className="object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/40" />
@@ -195,11 +195,7 @@ export default function Home() {
               yours.
             </p>
             <div className="mt-10 flex justify-center">
-              <TextSwapButton
-                href="/contact"
-                label="Begin a project →"
-                className="text-base uppercase tracking-[0.15em]"
-              />
+              <BorderButton href="/contact" label="Begin a project" />
             </div>
           </Reveal>
         </div>

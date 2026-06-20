@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { gsap, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, prefersReducedMotion, safeContext } from "@/src/lib/gsap";
 
 type Props = {
   src: string;
@@ -42,7 +42,7 @@ export default function RevealImage({
       return;
     }
 
-    const ctx = gsap.context(() => {
+    return safeContext(() => {
       gsap.set(img, { scale: 1.12 });
       const tl = gsap.timeline({
         scrollTrigger: { trigger: wrap, start: "top 82%" },
@@ -67,8 +67,6 @@ export default function RevealImage({
         );
       }
     }, wrap);
-
-    return () => ctx.revert();
   }, [parallax]);
 
   return (

@@ -3,15 +3,17 @@ import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import RevealImage from "@/src/components/motion/RevealImage";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import ParallaxImage from "@/src/components/motion/ParallaxImage";
+import BorderButton from "@/src/components/ui/BorderButton";
 import Timeline from "@/src/components/about/Timeline";
 import Accordion from "@/src/components/ui/Accordion";
+import ComingSoon from "@/src/components/ui/ComingSoon";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { craft } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "Craftsmanship, How We Build | 1ZONE",
+  title: "Craftsmanship | 1ZONE",
   description:
     "The construction rigor behind 1ZONE: a 12-node management framework, uniformed trained crews, branded 9-step waterproofing with a 10-year warranty, and a library of right-way-vs-wrong-way craft standards.",
 };
@@ -19,15 +21,16 @@ export const metadata: Metadata = {
 export default function CraftsmanshipPage() {
   return (
     <>
+      {/* Locked during client showcase, the page below is fully built. */}
+      <ComingSoon label="Craftsmanship" />
+
       {/* HERO */}
       <section className="relative flex h-screen w-full items-end overflow-hidden">
-        <Image
+        <ParallaxImage
           src={images.craft.hero.src}
           alt={images.craft.hero.alt}
-          fill
           priority
           sizes="100vw"
-          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 md:px-10">
@@ -158,11 +161,7 @@ export default function CraftsmanshipPage() {
               {craft.closing.body}
             </p>
             <div className="mt-10">
-              <TextSwapButton
-                href="/contact"
-                label="Begin a project →"
-                className="text-base uppercase tracking-[0.15em]"
-              />
+              <BorderButton href="/contact" label="Begin a project" />
             </div>
           </Reveal>
         </div>

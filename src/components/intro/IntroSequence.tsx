@@ -75,12 +75,13 @@ export default function IntroSequence() {
       },
     });
 
-    // 1. Logo blurs in, centered and large.
+    // 1. Logo blurs in, centered (50% slower than before), then holds in the
+    //    centre 30% longer before morphing away.
     tl.fromTo(
       logoEl,
       { opacity: 0, filter: "blur(24px)", scale: 1.04 },
-      { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.0, ease: "power3.out" },
-    ).to({}, { duration: 0.35 }); // hold
+      { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.5, ease: "power3.out" },
+    ).to({}, { duration: 0.37 }); // hold (centre dwell)
 
     // 2. Logo morphs into the navbar slot while the hero blurs in (70% → full).
     const MORPH = "morph";
@@ -166,7 +167,7 @@ export default function IntroSequence() {
       <div ref={bgRef} className="absolute inset-0 bg-black" />
       <div
         ref={logoRef}
-        className="relative h-[clamp(2.5rem,9vw,7rem)] overflow-hidden"
+        className="relative h-[clamp(1.75rem,6.3vw,4.9rem)] overflow-hidden"
         style={{ aspectRatio: "4.6 / 1" }}
       >
         <Image

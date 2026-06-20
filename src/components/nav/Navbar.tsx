@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useMenu } from "./MenuContext";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import BorderButton from "@/src/components/ui/BorderButton";
 import Logo from "@/src/components/brand/Logo";
 
 export default function Navbar() {
@@ -73,13 +72,12 @@ export default function Navbar() {
           <Logo variant="white" className="h-6 md:h-7" priority />
         </Link>
 
-        {/* Contact (top-right) */}
+        {/* Contact (top-right), the site-wide bordered button. */}
         <div data-hero-fg className="flex w-10 justify-end md:w-auto">
-          <TextSwapButton
+          <BorderButton
             href="/contact"
             label="Contact"
-            underline={false}
-            className="hidden text-sm uppercase tracking-[0.15em] md:flex"
+            className="hidden md:inline-flex"
           />
         </div>
       </div>

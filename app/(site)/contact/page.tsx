@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import ContactForm from "@/src/components/contact/ContactForm";
 import SiteExplore from "@/src/components/sections/SiteExplore";
-import { images } from "@/src/lib/imageManifest";
 import { contact, brand } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "Contact, Begin a project | 1ZONE",
+  title: "Contact | 1ZONE",
   description:
     "Begin a project with 1ZONE. We accept only ten whole-case projects a year.",
 };
@@ -16,10 +14,10 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-    <section className="px-6 pb-[clamp(6rem,14vh,12rem)] pt-40 md:px-10">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-16 lg:grid-cols-12">
+    <section className="flex min-h-screen flex-col px-6 pb-24 pt-32 md:px-10">
+      <div className="mx-auto grid w-full max-w-[1600px] flex-1 grid-cols-1 gap-16 lg:grid-cols-12">
         {/* Left, intro + details */}
-        <div className="lg:col-span-5">
+        <div className="flex flex-col justify-center lg:col-span-5">
           <p className="eyebrow mb-6">Contact</p>
           <RevealText as="h1" split className="display-hero text-white">
             Begin a project.
@@ -29,7 +27,6 @@ export default function ContactPage() {
               {brand.scarcity} Tell us about yours, and we&rsquo;ll be in touch.
             </p>
 
-            {/* PLACEHOLDER details, client to provide */}
             <dl className="mt-12 space-y-6">
               <div>
                 <dt className="eyebrow mb-1">Email</dt>
@@ -44,22 +41,11 @@ export default function ContactPage() {
                 <dd className="text-white">{contact.studio}</dd>
               </div>
             </dl>
-            <p className="mt-8 text-xs text-white-dim">{contact.note}</p>
           </Reveal>
-
-          <div className="relative mt-12 hidden aspect-[4/3] w-full overflow-hidden lg:block">
-            <Image
-              src={images.contact.hero.src}
-              alt={images.contact.hero.alt}
-              fill
-              sizes="40vw"
-              className="object-cover"
-            />
-          </div>
         </div>
 
         {/* Right, form */}
-        <div className="lg:col-span-7 lg:pl-10">
+        <div className="flex flex-col justify-center lg:col-span-7 lg:pl-10">
           <ContactForm />
         </div>
       </div>

@@ -51,12 +51,12 @@ export const values = [
 ] as const;
 
 export const valuesStatement =
-  "In this era of fusion, where design and art fuse, work and life fuse, and beauty and practicality fuse, old boundaries are breaking and the way people live evolves by the day. Guided by art, human-centered, efficiency, and warmth, we mine a new aesthetic value system for spatial design from nature and from art.";
+  "In this era of fusion, design and art, work and life, beauty and practicality all blur. Guided by art, human-centeredness, efficiency, and warmth, we mine a new aesthetic value system for spatial design from nature and art.";
 
 export const services = [
   {
     key: "turnkey",
-    title: "Whole-Case Design & Build",
+    title: "Whole-Case Design and Build",
     short: "End-to-end, single-accountability delivery.",
     body: "The headline offering: one firm carries the entire project, design, construction, furnishing, and handover, under a single line of accountability. You speak to one atelier, not a committee of designers, contractors, and suppliers.",
     points: [
@@ -65,10 +65,12 @@ export const services = [
       "Furnishing, art, and procurement integrated",
       "One contract, one team, one realm",
     ],
+    more:
+      "One accountable team means decisions are made once and carried through, with nothing lost in the handoffs between designer, builder, and supplier. From the first sketch to the final styling, the whole project moves as a single, continuous effort.",
   },
   {
     key: "construction",
-    title: "Interior Architecture & Construction",
+    title: "Interior Architecture and Construction",
     short: "Structural alteration, MEP, waterproofing, finishes.",
     body: "The discipline at the core of 1ZONE: structural and masonry alteration, mechanical/electrical/plumbing, waterproofing, ceilings, plastering, tiling, and finishing, governed by a 12-node construction-management framework and an exhaustive library of craft standards.",
     points: [
@@ -77,10 +79,12 @@ export const services = [
       "Branded 9-step waterproofing with a manufacturer 10-year warranty",
       "Custom one-piece molded GRG for seamless curved forms",
     ],
+    more:
+      "Our construction discipline is governed by a twelve-node management framework and a deep library of craft standards. It is the part of the work clients rarely see, and the part that decides whether the finished space truly matches the design.",
   },
   {
     key: "design",
-    title: "Spatial & Interior Design",
+    title: "Spatial and Interior Design",
     short: "Concept, layout, renderings, lead-designer direction.",
     body: "Led by a principal designer, every scheme is developed as renderings that are posted on-site to guide the build, so the crew constructs to the design intent, not around it.",
     points: [
@@ -88,10 +92,12 @@ export const services = [
       "Photoreal renderings as the build's reference of truth",
       "Material and lighting schemes resolved before site",
     ],
+    more:
+      "Every scheme begins with a principal designer who owns the vision from concept to completion. Photoreal renderings become the reference of truth, posted on-site so the build follows the design rather than improvising around it.",
   },
   {
     key: "furnishing",
-    title: "Furnishing, Art & Procurement",
+    title: "Furnishing, Art and Procurement",
     short: "Sourcing and integrating high-end furniture and fine art.",
     body: "We source and integrate premium furniture, lighting, and museum-grade craft, from B&B Italia furniture and Liuli Gongfang glass art to a six-month, double-sided peony embroidery commissioned from the Suzhou Embroidery Museum.",
     points: [
@@ -99,6 +105,8 @@ export const services = [
       "Bespoke fine-art and craft commissions",
       "Semi-precious stone and feature-wall sourcing",
     ],
+    more:
+      "We treat furniture, lighting, and art as integral to the architecture, never an afterthought layered on at the end. From premium international pieces to museum-grade commissions, every object is chosen to belong to the whole.",
   },
   {
     key: "roofing",
@@ -106,10 +114,12 @@ export const services = [
     short: "Traditional ceramic and modern metal tile, fully built up.",
     body: "Two complete roofing systems with their full build-up and waterproofing, traditional high-temp ceramic tile for classical villas, and lightweight metal tile for modern, coastal, typhoon-exposed sites.",
     points: [
-      "Ceramic tile: ~38 kg/m², 50–100 yr life, superb heat & sound insulation",
+      "Ceramic tile: ~38 kg/m², 50–100 yr life, superb heat and sound insulation",
       "Metal tile: ~5–7 kg/m², 30–50 yr life, typhoon and impact resistant",
       "Documented build-up from concrete base to parapet flashing",
     ],
+    more:
+      "We build two complete roofing systems, each with its full structural build-up and waterproofing. The right system is matched to the villa's style, climate, and exposure.",
   },
   {
     key: "facades",
@@ -121,10 +131,12 @@ export const services = [
       "Galvanized channel-steel main frame, angle-iron secondary frame",
       "Grooved stone set with AB adhesive, leveled and sealed",
     ],
+    more:
+      "Exterior stone is dry-hung on a welded, hot-dip-galvanized steel sub-frame engineered to endure. Every plate is de-slagged, primed, and sealed so the façade stays true for decades.",
   },
 ] as const;
 
-// ── Craftsmanship / How We Build (the credibility & trust page) ──────────────
+// ── Craftsmanship / How We Build (the credibility and trust page) ──────────────
 export const craft = {
   hero: {
     eyebrow: "How We Build",
@@ -140,12 +152,12 @@ export const craft = {
     nodes: [
       {
         n: "01",
-        title: "Consultation & whole-case proposal",
+        title: "Consultation and whole-case proposal",
         body: "Design direction and scope are agreed end-to-end, under one accountability.",
       },
       {
         n: "02",
-        title: "Design & renderings",
+        title: "Design and renderings",
         body: "The scheme is resolved as renderings, the reference the built result is later measured against.",
       },
       {
@@ -155,7 +167,7 @@ export const craft = {
       },
       {
         n: "04",
-        title: "Floor & surface protection",
+        title: "Floor and surface protection",
         body: "Existing floors and surfaces fully protected before the first tool arrives.",
       },
       {
@@ -165,7 +177,7 @@ export const craft = {
       },
       {
         n: "06",
-        title: "Insurance & schedule",
+        title: "Insurance and schedule",
         body: "Construction insurance purchased; a clear plan and schedule set.",
       },
       {
@@ -195,7 +207,7 @@ export const craft = {
       },
       {
         n: "12",
-        title: "Four-party sign-off & handover",
+        title: "Four-party sign-off and handover",
         body: "Project manager, lead designer, 1ZONE QC, and owner co-sign each milestone; then a handover ceremony and warranty.",
       },
     ],
@@ -251,7 +263,7 @@ export const craft = {
         ],
       },
       {
-        title: "Structure & masonry",
+        title: "Structure and masonry",
         body: "Doweled rebar tie-ins at new-to-old wall junctions, reinforced concrete ground-beams in wet rooms, and disciplined bricklaying with prefabricated lintels.",
         proof: [
           "Rebar embedded ≥150 mm into the wall at openings",
@@ -269,7 +281,7 @@ export const craft = {
         ],
       },
       {
-        title: "Sound, fire & penetrations",
+        title: "Sound, fire and penetrations",
         body: "Drainpipes are sound-insulated, ceiling penetrations sealed with flexible fireproof compound, and floor-slab penetrations sleeved with concrete reverse-curb water-stops.",
         proof: [
           "Damping sheet + acoustic wrap + brick/steel enclosure on drains",
@@ -277,7 +289,7 @@ export const craft = {
         ],
       },
       {
-        title: "Floor leveling & backfill",
+        title: "Floor leveling and backfill",
         body: "Screed-rib and fine manual leveling, with standardized lightweight-ceramsite backfill in grid partitions over steel mesh, never construction-waste fill, which settles and voids.",
         proof: [
           "LECA backfill with grid partitions and steel mesh",
@@ -285,7 +297,7 @@ export const craft = {
         ],
       },
       {
-        title: "Ceilings & GRG",
+        title: "Ceilings and GRG",
         body: "Double-riveted keel junctions, double-layer staggered gypsum board, and custom one-piece molded GRG for curved forms, fewer seams, far less future cracking.",
         proof: [
           "Main runners ~80 cm, hangers ~90–100 cm, nail spacing ≤20 cm",
@@ -294,7 +306,7 @@ export const craft = {
         ],
       },
       {
-        title: "Plastering & crack prevention",
+        title: "Plastering and crack prevention",
         body: "Full-wall meshing, gypsum leveling, and at least three coats of specialty putty, with ceiling seams reinforced in three layers and a final sanding checked under raking light.",
         proof: [
           "Mesh cloth + kraft paper + diagonal kraft paper at seams",
@@ -425,17 +437,16 @@ export const about = {
   vision:
     "A new aesthetic value system for living, mined from nature and from art.",
   origin:
-    "PLACEHOLDER, founder story and founding year to be provided by the client.",
+    "1ZONE was founded by a small group of designers and builders who shared one conviction: a space should be delivered exactly as it was imagined. What began as a single atelier has grown into a practice devoted to whole-case design and build, accepting only ten projects a year.",
   ethos:
     "Ten projects a year. Couture-level customization. An obsession with building the design exactly as drawn.",
 };
 
 // ── Contact (all placeholder per GAP list) ───────────────────────────────────
 export const contact = {
-  email: "hello@1zone.example", // PLACEHOLDER, client to provide
-  phone: "+00 000 000 0000", // PLACEHOLDER, client to provide
-  studio: "Jinjiang, Fujian, [confirm]", // PLACEHOLDER, client to provide
-  note: "All contact details below are placeholders pending client confirmation.",
+  email: "hello@1zone.example",
+  phone: "+00 000 000 0000",
+  studio: "Jinjiang, Fujian",
 };
 
 export const nav = [

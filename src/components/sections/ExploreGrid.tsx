@@ -1,5 +1,5 @@
 import RevealImage from "@/src/components/motion/RevealImage";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import BorderButton from "@/src/components/ui/BorderButton";
 
 type Item = {
   href: string;
@@ -27,11 +27,10 @@ export default function ExploreGrid({ heading = "Explore more", cta, items }: Pr
         <div className="mb-10 flex items-center justify-between gap-6">
           <h2 className="font-display text-3xl text-white md:text-5xl">{heading}</h2>
           {cta && (
-            <TextSwapButton
+            <BorderButton
               href={cta.href}
               label={cta.label}
-              boxed
-              className="shrink-0 text-xs uppercase tracking-[0.18em] text-white-dim"
+              className="shrink-0 text-xs"
             />
           )}
         </div>

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import ProjectGrid from "@/src/components/portfolio/ProjectGrid";
+import ComingSoon from "@/src/components/ui/ComingSoon";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 
 export const metadata: Metadata = {
-  title: "Portfolio, The realm, realized | 1ZONE",
+  title: "Portfolio | 1ZONE",
   description:
     "Selected villas, large flats, and private clubhouses by 1ZONE, completed, in progress, and upcoming.",
 };
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
+      {/* Locked during client showcase, the page below is fully built. */}
+      <ComingSoon label="Portfolio" />
+
       <section className="px-6 pb-[clamp(6rem,14vh,12rem)] pt-40 md:px-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-20 max-w-3xl">
