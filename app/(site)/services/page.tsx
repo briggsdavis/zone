@@ -4,6 +4,7 @@ import Reveal from "@/src/components/motion/Reveal";
 import ParallaxImage from "@/src/components/motion/ParallaxImage";
 import TextSwapButton from "@/src/components/motion/TextSwapButton";
 import ServicesScroller from "@/src/components/services/ServicesScroller";
+import ComingSoon from "@/src/components/ui/ComingSoon";
 import FeatureDuo from "@/src/components/sections/FeatureDuo";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
+      {/* Locked during client showcase, the page below is fully built. */}
+      <ComingSoon label="Services" />
+
       {/* HERO */}
       <section className="relative flex min-h-[70vh] items-end overflow-hidden px-6 pb-20 pt-40 md:px-10">
         <ParallaxImage

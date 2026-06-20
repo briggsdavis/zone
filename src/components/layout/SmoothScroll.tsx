@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, ScrollTrigger, prefersReducedMotion, safeRun } from "@/src/lib/gsap";
 
 /**
  * Lenis smooth scroll wired into GSAP's ticker and ScrollTrigger.
@@ -44,10 +44,13 @@ export default function SmoothScroll({
   // positions once the new page's layout has settled. This keeps ScrollTrigger
   // in sync across route changes (it does not re-measure on its own).
   useEffect(() => {
-    const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
-    lenis?.scrollTo(0, { immediate: true });
-    if (typeof window !== "undefined") window.scrollTo(0, 0);
-    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+    let id = 0;
+    safeRun(() => {
+      const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+      lenis?.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
+      id = requestAnimationFrame(() => safeRun(() => ScrollTrigger.refresh()));
+    });
     return () => cancelAnimationFrame(id);
   }, [pathname]);
 

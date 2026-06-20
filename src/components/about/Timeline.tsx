@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, ScrollTrigger, prefersReducedMotion, safeContext } from "@/src/lib/gsap";
 
 export type TimelineNode = { n: string; title: string; body: string };
 
@@ -28,7 +28,7 @@ export default function Timeline({ nodes }: { nodes: TimelineNode[] }) {
       return;
     }
 
-    const ctx = gsap.context(() => {
+    return safeContext(() => {
       gsap.fromTo(
         fill,
         { scaleY: 0 },
@@ -53,8 +53,6 @@ export default function Timeline({ nodes }: { nodes: TimelineNode[] }) {
         });
       });
     }, root);
-
-    return () => ctx.revert();
   }, []);
 
   return (

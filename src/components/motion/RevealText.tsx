@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, ElementType } from "react";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, prefersReducedMotion, safeContext } from "@/src/lib/gsap";
 
 type Props = {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ export default function RevealText({
       return;
     }
 
-    const ctx = gsap.context(() => {
+    return safeContext(() => {
       const targets = split
         ? el.querySelectorAll("[data-word]")
         : [el];
@@ -54,8 +54,6 @@ export default function RevealText({
         },
       );
     }, el);
-
-    return () => ctx.revert();
   }, [split, delay]);
 
   // Word-splitting wrapper preserves spaces and gives each word a clip mask.

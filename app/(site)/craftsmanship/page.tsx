@@ -7,6 +7,7 @@ import ParallaxImage from "@/src/components/motion/ParallaxImage";
 import BorderButton from "@/src/components/ui/BorderButton";
 import Timeline from "@/src/components/about/Timeline";
 import Accordion from "@/src/components/ui/Accordion";
+import ComingSoon from "@/src/components/ui/ComingSoon";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { craft } from "@/src/lib/content";
@@ -20,6 +21,9 @@ export const metadata: Metadata = {
 export default function CraftsmanshipPage() {
   return (
     <>
+      {/* Locked during client showcase, the page below is fully built. */}
+      <ComingSoon label="Craftsmanship" />
+
       {/* HERO */}
       <section className="relative flex h-screen w-full items-end overflow-hidden">
         <ParallaxImage

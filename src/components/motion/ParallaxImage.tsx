@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, prefersReducedMotion, safeContext } from "@/src/lib/gsap";
 
 type Props = {
   src: string;
@@ -36,7 +36,7 @@ export default function ParallaxImage({
     const layer = layerRef.current;
     if (!layer || prefersReducedMotion()) return;
 
-    const ctx = gsap.context(() => {
+    return safeContext(() => {
       gsap.fromTo(
         layer,
         { yPercent: -strength },
@@ -52,8 +52,6 @@ export default function ParallaxImage({
         },
       );
     }, layer);
-
-    return () => ctx.revert();
   }, [strength]);
 
   return (

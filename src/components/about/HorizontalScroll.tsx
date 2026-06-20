@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/src/lib/gsap";
+import { gsap, prefersReducedMotion, safeRun } from "@/src/lib/gsap";
 import { values } from "@/src/lib/content";
 import { images } from "@/src/lib/imageManifest";
 
@@ -23,26 +23,28 @@ export default function HorizontalScroll() {
     const mm = gsap.matchMedia();
 
     // Only pin/scrub on larger screens with motion allowed.
-    mm.add(
-      "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
-      () => {
-        const amount = track.scrollWidth - window.innerWidth;
-        gsap.to(track, {
-          x: -amount,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: () => `+=${amount}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-      },
+    safeRun(() =>
+      mm.add(
+        "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const amount = track.scrollWidth - window.innerWidth;
+          gsap.to(track, {
+            x: -amount,
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: () => `+=${amount}`,
+              pin: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+        },
+      ),
     );
 
-    return () => mm.revert();
+    return () => safeRun(() => mm.revert());
   }, []);
 
   const panelImages = images.about.horizontal;
