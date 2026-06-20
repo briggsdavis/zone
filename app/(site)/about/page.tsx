@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import RevealImage from "@/src/components/motion/RevealImage";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import BorderButton from "@/src/components/ui/BorderButton";
+import ParallaxImage from "@/src/components/motion/ParallaxImage";
 import HorizontalScroll from "@/src/components/about/HorizontalScroll";
 import Timeline from "@/src/components/about/Timeline";
-import OffsetPair from "@/src/components/sections/OffsetPair";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 import { images } from "@/src/lib/imageManifest";
 import { about, essence, valuesStatement, craft } from "@/src/lib/content";
 
 export const metadata: Metadata = {
-  title: "About, One realm, one atelier | 1ZONE",
+  title: "About | 1ZONE",
   description:
     "1ZONE (一境), 'one realm.' A boutique turnkey design-and-build atelier. Mission, vision, the four principles, and the only-ten-projects-a-year ethos.",
 };
@@ -22,13 +21,11 @@ export default function AboutPage() {
     <>
       {/* HERO */}
       <section className="relative flex h-screen w-full items-end overflow-hidden">
-        <Image
+        <ParallaxImage
           src={images.about.hero.src}
           alt={images.about.hero.alt}
-          fill
           priority
           sizes="100vw"
-          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-24 md:px-10">
@@ -39,7 +36,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PHILOSOPHY */}
+      {/* PHILOSOPHY + ONE REALM, merged: the explanation, then the offset pair */}
       <section className="mx-auto max-w-[1600px] px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <p className="eyebrow md:col-span-3">Philosophy</p>
@@ -54,15 +51,27 @@ export default function AboutPage() {
             </Reveal>
           </div>
         </div>
-      </section>
 
-      {/* ONE REALM, offset imagery pair */}
-      <OffsetPair
-        eyebrow="一境 · One realm"
-        heading="A single, unified, complete environment, delivered by one atelier."
-        small={images.about.ethos}
-        large={images.about.hero}
-      />
+        {/* The one-realm offset imagery pair, small low-left beside a wide right. */}
+        <div className="mt-20 grid grid-cols-1 items-end gap-8 md:mt-28 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <RevealImage
+              src={images.about.ethos.src}
+              alt={images.about.ethos.alt}
+              className="aspect-[4/5] w-full"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </div>
+          <div className="md:col-span-8">
+            <RevealImage
+              src={images.about.hero.src}
+              alt={images.about.hero.alt}
+              className="aspect-[16/9] w-full"
+              sizes="(max-width: 768px) 100vw, 66vw"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* MISSION / VISION / ETHOS */}
       <section className="border-t border-line px-6 py-[clamp(6rem,14vh,12rem)] md:px-10">
@@ -115,11 +124,7 @@ export default function AboutPage() {
             </RevealText>
             <Reveal delay={0.1}>
               <div className="mt-10">
-                <TextSwapButton
-                  href="/contact"
-                  label="Begin a project →"
-                  className="text-sm uppercase tracking-[0.15em]"
-                />
+                <BorderButton href="/contact" label="Begin a project" />
               </div>
             </Reveal>
           </div>

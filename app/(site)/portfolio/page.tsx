@@ -5,7 +5,7 @@ import ProjectGrid from "@/src/components/portfolio/ProjectGrid";
 import SiteExplore from "@/src/components/sections/SiteExplore";
 
 export const metadata: Metadata = {
-  title: "Portfolio, The realm, realized | 1ZONE",
+  title: "Portfolio | 1ZONE",
   description:
     "Selected villas, large flats, and private clubhouses by 1ZONE, completed, in progress, and upcoming.",
 };

@@ -133,10 +133,6 @@ export default function ProjectGrid() {
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white-dim">
                 {active.blurb}
               </p>
-              <p className="mt-8 text-xs text-white-dim">
-                {/* Galleries are placeholders pending client-supplied photography. */}
-                Additional photography to be provided by the client.
-              </p>
             </div>
           </div>
         </div>

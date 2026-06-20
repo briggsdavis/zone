@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/src/lib/gsap";
 
@@ -13,6 +14,8 @@ export default function SmoothScroll({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (prefersReducedMotion()) return;
 
@@ -36,6 +39,17 @@ export default function SmoothScroll({
       (window as unknown as { __lenis?: Lenis }).__lenis = undefined;
     };
   }, []);
+
+  // On client navigation, reset scroll to the top and recompute trigger
+  // positions once the new page's layout has settled. This keeps ScrollTrigger
+  // in sync across route changes (it does not re-measure on its own).
+  useEffect(() => {
+    const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+    lenis?.scrollTo(0, { immediate: true });
+    if (typeof window !== "undefined") window.scrollTo(0, 0);
+    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(id);
+  }, [pathname]);
 
   return <>{children}</>;
 }

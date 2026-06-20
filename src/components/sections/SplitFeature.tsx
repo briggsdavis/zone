@@ -1,7 +1,7 @@
 import RevealText from "@/src/components/motion/RevealText";
 import Reveal from "@/src/components/motion/Reveal";
 import RevealImage from "@/src/components/motion/RevealImage";
-import TextSwapButton from "@/src/components/motion/TextSwapButton";
+import BorderButton from "@/src/components/ui/BorderButton";
 
 type Props = {
   heading: string;
@@ -52,12 +52,7 @@ export default function SplitFeature({
         )}
         {cta && (
           <div className="mt-10">
-            <TextSwapButton
-              href={cta.href}
-              label={cta.label}
-              boxed
-              className="text-xs uppercase tracking-[0.18em] text-white-dim"
-            />
+            <BorderButton href={cta.href} label={cta.label} className="text-xs" />
           </div>
         )}
       </div>
