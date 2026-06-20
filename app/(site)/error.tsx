@@ -1,23 +1,23 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 /**
- * Errors whose root cause is a stale/missing JS chunk (the usual culprit for a
- * "client-side exception" when navigating after a new deploy: the open tab still
- * points at the previous build's chunk hashes). A one-time hard reload pulls the
- * current build and clears it.
+ * This is a fully static marketing site: every route renders cleanly on the
+ * server (SSR + RSC all 200). So a client-side navigation error is, in
+ * practice, a transient stale-asset problem, the classic "client-side
+ * exception" you get when an already-open tab navigates after a new deploy and
+ * requests JS chunks / RSC payloads whose hashes no longer exist.
+ *
+ * The reliable recovery is a hard reload (it pulls the current build). We do
+ * that automatically, but bound it: at most twice in 30s. If it still fails
+ * after that it is likely a real bug, so we stop reloading and surface the
+ * actual error for diagnosis instead of looping.
  */
-function isChunkLoadError(error?: Error & { digest?: string }): boolean {
-  if (!error) return false;
-  const text = `${error.name} ${error.message} ${error.digest ?? ""}`;
-  return /ChunkLoadError|Loading chunk|Loading CSS chunk|dynamically imported module|Importing a module script failed|error loading dynamically imported module|Failed to fetch/i.test(
-    text,
-  );
-}
-
-const RELOAD_KEY = "1zone_chunk_reload_at";
+const KEY = "1zone_nav_recover";
+const WINDOW_MS = 30000;
+const MAX_RELOADS = 2;
 
 export default function Error({
   error,
@@ -26,27 +26,39 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.error(error);
+  const [recovering, setRecovering] = useState(false);
 
-    if (isChunkLoadError(error)) {
-      // Guard against reload loops: only auto-reload once per 12s.
-      let last = 0;
+  useEffect(() => {
+    console.error("[1ZONE] navigation error:", error?.message, error?.digest, error);
+
+    let history: number[] = [];
+    try {
+      history = JSON.parse(sessionStorage.getItem(KEY) || "[]");
+    } catch {
+      history = [];
+    }
+    const now = Date.now();
+    history = history.filter((t) => now - t < WINDOW_MS);
+
+    if (history.length < MAX_RELOADS) {
+      history.push(now);
       try {
-        last = Number(sessionStorage.getItem(RELOAD_KEY) || 0);
+        sessionStorage.setItem(KEY, JSON.stringify(history));
       } catch {
-        /* sessionStorage may be unavailable */
+        /* ignore */
       }
-      if (Date.now() - last > 12000) {
-        try {
-          sessionStorage.setItem(RELOAD_KEY, String(Date.now()));
-        } catch {
-          /* ignore */
-        }
-        window.location.reload();
-      }
+      setRecovering(true);
+      window.location.reload();
     }
   }, [error]);
+
+  if (recovering) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+        <p className="eyebrow text-white-dim">Reconnecting…</p>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
@@ -58,12 +70,7 @@ export default function Error({
       <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
         <button
           type="button"
-          onClick={() => {
-            // A hard reload reliably recovers from stale chunks; fall back to
-            // the soft reset for everything else.
-            if (isChunkLoadError(error)) window.location.reload();
-            else reset();
-          }}
+          onClick={() => window.location.reload()}
           className="group relative inline-flex items-center justify-center overflow-hidden border border-white/60 px-7 py-3 text-sm uppercase tracking-[0.15em] text-white transition-colors duration-500"
         >
           <span
@@ -71,7 +78,7 @@ export default function Error({
             className="pointer-events-none absolute inset-0 bg-white opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
           />
           <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
-            Try again
+            Reload
           </span>
         </button>
         <Link
@@ -81,6 +88,13 @@ export default function Error({
           Return home →
         </Link>
       </div>
+      {/* Diagnostic detail (only shown once auto-recovery has been exhausted). */}
+      {(error?.message || error?.digest) && (
+        <p className="mt-10 max-w-lg break-words text-xs text-white-dim/60">
+          {error.message}
+          {error.digest ? ` · ${error.digest}` : ""}
+        </p>
+      )}
     </main>
   );
 }

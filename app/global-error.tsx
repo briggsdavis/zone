@@ -14,23 +14,20 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
-    const text = `${error.name} ${error.message} ${error.digest ?? ""}`;
-    const isChunk =
-      /ChunkLoadError|Loading chunk|Loading CSS chunk|dynamically imported module|Importing a module script failed|Failed to fetch/i.test(
-        text,
-      );
-    if (isChunk) {
-      try {
-        const KEY = "1zone_chunk_reload_at";
-        const last = Number(sessionStorage.getItem(KEY) || 0);
-        if (Date.now() - last > 12000) {
-          sessionStorage.setItem(KEY, String(Date.now()));
-          window.location.reload();
-        }
-      } catch {
+    console.error("[1ZONE] root error:", error?.message, error?.digest, error);
+    // Recover from transient/stale-asset errors with a bounded hard reload.
+    try {
+      const KEY = "1zone_root_recover";
+      const now = Date.now();
+      let history: number[] = JSON.parse(sessionStorage.getItem(KEY) || "[]");
+      history = history.filter((t) => now - t < 30000);
+      if (history.length < 2) {
+        history.push(now);
+        sessionStorage.setItem(KEY, JSON.stringify(history));
         window.location.reload();
       }
+    } catch {
+      window.location.reload();
     }
   }, [error]);
 
