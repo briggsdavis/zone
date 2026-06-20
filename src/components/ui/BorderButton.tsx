@@ -21,10 +21,10 @@ export default function BorderButton({
 }: Props) {
   const inner = (
     <>
-      {/* White background that blurs + fades in on hover. */}
+      {/* Solid white background that fades in on hover. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 scale-105 bg-white opacity-0 blur-md transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100 group-hover:blur-0"
+        className="pointer-events-none absolute inset-0 bg-white opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
       />
       <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
         {label}

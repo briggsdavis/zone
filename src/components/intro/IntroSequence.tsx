@@ -81,7 +81,7 @@ export default function IntroSequence() {
       logoEl,
       { opacity: 0, filter: "blur(24px)", scale: 1.04 },
       { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.5, ease: "power3.out" },
-    ).to({}, { duration: 0.46 }); // hold (centre dwell)
+    ).to({}, { duration: 0.37 }); // hold (centre dwell)
 
     // 2. Logo morphs into the navbar slot while the hero blurs in (70% → full).
     const MORPH = "morph";
